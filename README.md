@@ -1,2 +1,2 @@
 # xleepree-webtite
-website thienfy version two
+the sucessor to xleepree-webtite-legacy
