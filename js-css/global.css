@@ -1,10 +1,47 @@
 /* font */
 
-    @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
-    @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap");
 
-    * {
-        font-family: "Roboto Slab", serif;
+* {
+    font-family: "Roboto Slab", serif;
+}
+
+/* theme stuff */
+
+    :root { /* default */
+        --bg-type: url(../images/background.png);
+        --text-color: black;
+        --text-blur: 0 0 15px rgba(255, 255, 255, 1), 
+        0 0 20px rgba(255, 255, 255, 1), 
+        0 0 25px rgba(255, 255, 255, 1);
+        --container-blur: blur(15px);
+        --container-shadow: 2px 2px 7px black;
+        --border-color: 2px black;
+        --nav-gradient: linear-gradient(rgb(199, 199, 199), white);
+        --scrollbar-thumb-color: linear-gradient(white, rgb(165, 165, 165));
+    }
+
+    .lightTheme {
+        --bg-type: linear-gradient(white, rgb(165, 165, 165));
+        --text-color: black;
+        --text-blur: none;
+        --container-blur: none;
+        --container-shadow: 2px 2px 7px black;
+        --border-color: 2px black;
+        --nav-gradient: linear-gradient(rgb(199, 199, 199), white);
+        --scrollbar-thumb-color: linear-gradient(white, rgb(165, 165, 165));
+    }
+
+    .darkTheme {
+        --bg-type: linear-gradient(rgb(90, 90, 90), black);
+        --text-color: white;
+        --text-blur: none;
+        --container-blur: none;
+        --container-shadow: 2px 2px 7px white;
+        --border-color: 2px white;
+        --nav-gradient: linear-gradient(rgb(56, 56, 56), black);
+        --scrollbar-thumb-color: linear-gradient(black, rgb(90, 90, 90));
     }
 
 /* divs */
@@ -15,12 +52,12 @@
         margin: 0 auto 1em auto;
         max-width: 60em;
         text-align: center;
-        background-image: linear-gradient(rgb(199, 199, 199), rgb(255, 255, 255));
-        box-shadow: 2px 2px 7px black;
+        background-image: var(--nav-gradient);
+        box-shadow: var(--container-shadow);
     }
 
     .gridTemplate {
-        border: 2px black dashed;
+        border: var(--border-color) dashed;
         display: grid;
         grid-template-columns: auto;
         max-width: 60em;
@@ -30,35 +67,38 @@
     }
 
     .gridTemplate > div {
-        border: 2px black solid;
+        border: var(--border-color) solid;
         padding: 1em;
         margin: 0 auto 1em auto;
-        box-shadow: 2px 2px 7px black;
-        backdrop-filter: blur(15px);
-        -webkit-backdrop-filter: blur(15px);
+        box-shadow: var(--container-shadow);
+        backdrop-filter: var(--container-blur);
+        -webkit-backdrop-filter: var(--container-blur);
+        color: var(--text-color);
     }
 
     .mainContainer {
-        border: 2px black solid;
+        border: var(--border-color) solid;
         max-width: 60em;
         margin: 0 auto 1em auto;
         padding: 1em;
-        backdrop-filter: blur(15px);
-        box-shadow: 2px 2px 7px black;
-        -webkit-backdrop-filter: blur(15px);
+        backdrop-filter: var(--container-blur);
+        box-shadow: var(--container-shadow);
+        -webkit-backdrop-filter: var(--container-blur);
+        color: var(--text-color);
     }
 
     .scrollableContainer {
         overflow-x: hidden;
         overflow-y: auto;
-        border: 2px black solid;
+        border: var(--border-color) solid;
         max-width: 60em;
         margin: 0 auto 1em auto;
         padding: 1em;
         height: 20em;
-        box-shadow: 2px 2px 7px black;
-        backdrop-filter: blur(15px);
-        -webkit-backdrop-filter: blur(15px);
+        box-shadow: var(--container-shadow);
+        backdrop-filter: var(--container-blur);
+        -webkit-backdrop-filter: var(--container-blur);
+        color: var(--text-color);
     }
 
     .galleryContainer {
@@ -67,16 +107,16 @@
         max-width: 60em;
         margin: 0 auto 1em auto;
         padding: 1em;
-        box-shadow: 2px 2px 7px black;
+        box-shadow: var(--container-shadow);
     }
 
     .legacyContainer {
         border-radius: 15px;
-        box-shadow: 0px 0.5em 10px;
+        box-shadow: var(--container-shadow);
         padding: 1em;
         margin: 0 auto 1em auto;
         max-width: 60em;
-        background-image: linear-gradient(rgb(214, 214, 214), white);
+        background-image: var(--bg-type);
     }
 
     .legacyContainer, .legacyContainer * {
@@ -84,13 +124,13 @@
     }
 
     .codeContainer {
-        border: 2px black solid;
+        border: var(--border-color) solid;
         max-width: 60em;
         margin: 0 auto 1em auto;
         padding: 1em;
         background-image: linear-gradient(darkslategrey, black);
         color: white;
-        box-shadow: 2px 2px 7px black;
+        box-shadow: var(--container-shadow);
     }
 
     .codeContainer, .codeContainer * {
@@ -98,14 +138,15 @@
     }
 
     .footer {
-        border: 2px black solid;
+        border: var(--border-color) solid;
         max-width: 45em;
         margin: 0 auto 1em auto;
         padding: 1em;
         text-align: center;
-        box-shadow: 2px 2px 7px black;
-        backdrop-filter: blur(15px);
-        -webkit-backdrop-filter: blur(15px);
+        box-shadow: var(--container-shadow);
+        backdrop-filter: var(--container-blur);
+        -webkit-backdrop-filter: var(--container-blur);
+        color: var(--text-color);
     }
 
 
@@ -118,10 +159,10 @@
     }
 
     .banner {
-        border: 2px black solid;
+        border: var(--border-color) solid;
         max-width: 62.25em;
         width: 100%;
-        box-shadow: 2px 2px 7px black;
+        box-shadow: var(--container-shadow);
     }
 
     .indicatorImage {
@@ -159,6 +200,18 @@
         text-decoration: none;
     }
 
+    button {
+        border-color: var(--border-color);
+        color: var(--text-color);
+        background-image: var(--bg-type);
+        border-radius: 15px;
+        transition: border-radius 0.5s;
+    }
+
+    button:hover {
+        border-radius: 5px;
+    }
+
 /* scrollbar */
 
 ::-webkit-scrollbar {
@@ -170,7 +223,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-    background: linear-gradient(white, rgb(165, 165, 165));
+    background: var(--scrollbar-thumb-color);
 }
 
 /* misc */
@@ -178,15 +231,13 @@
     body {
         padding: 0.5em;
         animation: fadeIn 1s ease-in;
-        background-image: url(../images/background.png);
+        background-image: var(--bg-type);
         background-size: cover;
         background-position: center center;
         background-repeat: no-repeat;
         
         margin: 0;
-        text-shadow: 0 0 15px rgba(255, 255, 255, 1), 
-        0 0 20px rgba(255, 255, 255, 1), 
-        0 0 25px rgba(255, 255, 255, 1);
+        text-shadow: var(--text-blur);
 
         /* compatibility */
 
@@ -197,8 +248,8 @@
             background-attachment: fixed;
         
             -webkit-text-shadow: 0 0 15px rgba(255, 255, 255, 1), 
-                                0 0 20px rgba(255, 255, 255, 1), 
-                                0 0 25px rgba(255, 255, 255, 1);
+            0 0 20px rgba(255, 255, 255, 1), 
+            0 0 25px rgba(255, 255, 255, 1);
             min-height: 100vh;
     }
 
@@ -209,7 +260,7 @@
         left: 0;
         width: 100vw;
         height: 100vh;
-        background: url(../images/background.png) no-repeat center center;
+        background: var(--bg-type) no-repeat center center;
         background-size: cover;
         z-index: -1;
     }
