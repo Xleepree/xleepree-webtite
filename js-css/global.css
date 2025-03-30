@@ -35,6 +35,7 @@
         margin: 0 auto 1em auto;
         box-shadow: 2px 2px 7px black;
         backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
     }
 
     .mainContainer {
@@ -44,6 +45,7 @@
         padding: 1em;
         backdrop-filter: blur(15px);
         box-shadow: 2px 2px 7px black;
+        -webkit-backdrop-filter: blur(15px);
     }
 
     .scrollableContainer {
@@ -56,6 +58,7 @@
         height: 20em;
         box-shadow: 2px 2px 7px black;
         backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
     }
 
     .galleryContainer {
@@ -102,6 +105,7 @@
         text-align: center;
         box-shadow: 2px 2px 7px black;
         backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
     }
 
 
@@ -178,11 +182,36 @@
         background-size: cover;
         background-position: center center;
         background-repeat: no-repeat;
-        background-attachment: fixed;
+        
         margin: 0;
         text-shadow: 0 0 15px rgba(255, 255, 255, 1), 
         0 0 20px rgba(255, 255, 255, 1), 
         0 0 25px rgba(255, 255, 255, 1);
+
+        /* compatibility */
+
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            -ms-background-size: cover;
+            background-attachment: fixed;
+        
+            -webkit-text-shadow: 0 0 15px rgba(255, 255, 255, 1), 
+                                0 0 20px rgba(255, 255, 255, 1), 
+                                0 0 25px rgba(255, 255, 255, 1);
+            min-height: 100vh;
+    }
+
+    body::before { /* more compatibility */
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: url(../images/background.png) no-repeat center center;
+        background-size: cover;
+        z-index: -1;
     }
 
 /* animations */
