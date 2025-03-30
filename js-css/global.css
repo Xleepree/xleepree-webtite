@@ -1,0 +1,193 @@
+/* font */
+
+    @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
+    @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap");
+
+    * {
+        font-family: "Roboto Slab", serif;
+    }
+
+/* divs */
+
+    .nav {
+        border: 4px rgb(255, 130, 46) solid;
+        padding: 1em;
+        margin: 0 auto 1em auto;
+        max-width: 60em;
+        text-align: center;
+        background-image: linear-gradient(rgb(199, 199, 199), rgb(255, 255, 255));
+        box-shadow: 2px 2px 7px black;
+    }
+
+    .gridTemplate {
+        border: 2px black dashed;
+        display: grid;
+        grid-template-columns: auto;
+        max-width: 60em;
+        margin: 0 auto 1em auto;
+        gap: 1em;
+        padding: 1em;
+    }
+
+    .gridTemplate > div {
+        border: 2px black solid;
+        padding: 1em;
+        margin: 0 auto 1em auto;
+        box-shadow: 2px 2px 7px black;
+        backdrop-filter: blur(15px);
+    }
+
+    .mainContainer {
+        border: 2px black solid;
+        max-width: 60em;
+        margin: 0 auto 1em auto;
+        padding: 1em;
+        backdrop-filter: blur(15px);
+        box-shadow: 2px 2px 7px black;
+    }
+
+    .scrollableContainer {
+        overflow-x: hidden;
+        overflow-y: auto;
+        border: 2px black solid;
+        max-width: 60em;
+        margin: 0 auto 1em auto;
+        padding: 1em;
+        height: 20em;
+        box-shadow: 2px 2px 7px black;
+        backdrop-filter: blur(15px);
+    }
+
+    .galleryContainer {
+        border: 2px rgb(0, 109, 58) solid;
+        background-color: rgb(183, 255, 173);
+        max-width: 60em;
+        margin: 0 auto 1em auto;
+        padding: 1em;
+        box-shadow: 2px 2px 7px black;
+    }
+
+    .legacyContainer {
+        border-radius: 15px;
+        box-shadow: 0px 0.5em 10px;
+        padding: 1em;
+        margin: 0 auto 1em auto;
+        max-width: 60em;
+        background-image: linear-gradient(rgb(214, 214, 214), white);
+    }
+
+    .legacyContainer, .legacyContainer * {
+        font-family: "JetBrains Mono", monospace !important;
+    }
+
+    .codeContainer {
+        border: 2px black solid;
+        max-width: 60em;
+        margin: 0 auto 1em auto;
+        padding: 1em;
+        background-image: linear-gradient(darkslategrey, black);
+        color: white;
+        box-shadow: 2px 2px 7px black;
+    }
+
+    .codeContainer, .codeContainer * {
+        font-family: "JetBrains Mono", monospace !important;
+    }
+
+    .footer {
+        border: 2px black solid;
+        max-width: 45em;
+        margin: 0 auto 1em auto;
+        padding: 1em;
+        text-align: center;
+        box-shadow: 2px 2px 7px black;
+        backdrop-filter: blur(15px);
+    }
+
+
+/* image */
+
+    .bannerContainer { /* for centering */
+        margin: 0 auto 1em auto;
+        width: 100%;
+        text-align: center;
+    }
+
+    .banner {
+        border: 2px black solid;
+        max-width: 62.25em;
+        width: 100%;
+        box-shadow: 2px 2px 7px black;
+    }
+
+    .indicatorImage {
+        width: 7em;
+    }
+
+    .galleryContainer > img {
+        width: 5em;
+        margin: 2px;
+    }
+
+/* links, buttons, etc */
+
+    a:link {
+        color: rgb(255, 60, 0);
+        text-decoration: none;
+        transition: letter-spacing 0.5s;
+    }
+
+    a:visited {
+        color: rgb(255, 60, 0);
+        text-decoration: none;
+    }
+
+    a:hover {
+        color: rgb(255, 114, 49);
+        font-weight: bold;
+        text-decoration: underline;
+        letter-spacing: 1.5px;
+    }
+
+    a:active {
+        color: rgb(255, 114, 49);
+        font-weight: bolder;
+        text-decoration: none;
+    }
+
+/* scrollbar */
+
+::-webkit-scrollbar {
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: linear-gradient(rgb(255, 121, 12), rgb(255, 58, 23));
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(white, rgb(165, 165, 165));
+}
+
+/* misc */
+
+    body {
+        padding: 0.5em;
+        animation: fadeIn 1s ease-in;
+        background-image: url(../images/background.png);
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        margin: 0;
+        text-shadow: 0 0 15px rgba(255, 255, 255, 1), 
+        0 0 20px rgba(255, 255, 255, 1), 
+        0 0 25px rgba(255, 255, 255, 1);
+    }
+
+/* animations */
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }

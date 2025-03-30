@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Automatic loading: no. | xleepree.pages.dev</title>
+        <link rel="stylesheet" href="../js-css/global.css">
+        <link rel="icon" type="image/x-icon" href="../images/icon.png">
+        <script src="../js-css/global.js"></script>
+    </head>
+
+    <body>
+
+        <div class="bannerContainer">
+            <img src="../images/banner.png" class="banner">
+        </div>
+
+        <div class="nav">
+            <a href="../index.html">home</a>
+            <a href="../about.html">about</a>
+            <a href="../blog.html">blog</a>
+            <a href="../projects.html">projects</a>
+        </div>
+
+        <div class="mainContainer">
+            <a href="../blog.html"><< back</a>
+            <h1>Automatic loading: no.</h1>
+            <p><small>3-29-2025</small></p>
+            <p>i'm not adding automatic loading to my website anymore</p>
+
+            <hr>
+
+            <p>i don't want to add automatic loading to my website anymore<br>
+            what i mean by automatic loading is loading stuff like the footer, navigation, and banner with javascript to reduce copy and pasting<br>
+            and i did that on my last website<br>
+            i won't here though</p>
+
+            <h2>why?</h2>
+            <p>because i still had to copy and paste anyway<br>
+            it doesn't just add the navigation, footer and banner to the page<br>
+            instead, it finds a placeholder html element and then puts stuff inside<br>
+            i still need to copy and paste that placeholder, so it removes the entire purpose<br>
+            plus, the code for it was weird and it sucked</p>
+
+            <div class="codeContainer">
+                <p><code>
+                    <small>pages > about.html > html > body > div.container</small><br>
+                    <br>
+                    &lt;div id="nav" class="container"&gt;<br>
+                        &lt;p&gt;navigation..&lt;/p&gt;<br>
+                      &lt;/div&gt;
+                </code></p>
+            </div>
+
+            <div class="codeContainer" style="overflow-x: auto;">
+                <p><pre><code><small>
+js > page-loader.js > loadNavIndex</small> <!-- i know this looks terrible just ignore it :) -->
+
+function loadNavIndex() {
+    document.getElementById("nav").innerHTML = 
+    "&lt;a href='index.html'&gt;home&lt;/a&gt; &lt;a href='pages/blog.html'>blog&lt;/a&gt; &lt;a href='pages/projects.html'>projects&lt;/a&gt; &lt;a href='pages/changelog.html'>changelog&lt;/a&gt; &lt;a href='pages/about.html'>about&lt;/a&gt;"
+}
+                </pre></code></p> 
+            </div>
+            
+            <p>so basically,<br>
+            i'm not adding automatic loading on this website because it helps me with nothing
+            and has weird code<br>
+            and sure, you could argue that javascript has a way to load it without a placeholder element<br>
+            but uhh<br>
+            i don't know how soo yeah<br>
+            not planning to add automatic loading back unless i find a solution</p>
+        </div>
+
+        <div class="footer">
+            <p>since nov 3, 2024 :: hosted with cloudflare</p>
+            <a href="https://github.com/Xleepree/xleepree-webtite">repository</a> <a href="mailto:xleepree.pages.mail@gmail.com">contact</a>
+        </div>
+
+    </body>
+
+</html>
