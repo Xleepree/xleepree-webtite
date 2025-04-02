@@ -144,6 +144,8 @@
         background-image: linear-gradient(darkslategrey, black);
         color: white;
         box-shadow: var(--container-shadow);
+        overflow-x: auto;
+        overflow-y: hidden;
     }
 
     .codeContainer, .codeContainer * {
@@ -185,6 +187,11 @@
     .galleryContainer > img {
         width: 5em;
         margin: 2px;
+    }
+
+    .blogImage {
+        max-width: 41em;
+        border: var(--border-color) solid;
     }
 
 /* links, buttons, etc */
