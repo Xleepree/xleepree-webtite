@@ -9,20 +9,7 @@
 
 /* theme stuff */
 
-    :root { /* april 1st */
-        --bg-type: url(../images/background-april-fools.png);
-        --text-color: rgb(255, 238, 0);
-        --text-blur: 0 0 15px rgba(255, 0, 76, 1), 
-        0 0 20px rgba(255, 0, 76, 1), 
-        0 0 25px rgba(255, 0, 76, 1);
-        --container-blur: blur(15px);
-        --container-shadow: 2px 2px 7px rgb(0, 255, 42);
-        --border-color: 2px rgb(183, 0, 255);
-        --nav-gradient: linear-gradient(rgb(199, 199, 199), white);
-        --scrollbar-thumb-color: linear-gradient(rgb(38, 0, 255), rgb(255, 0, 0));
-    }
-
-    /* :root {
+	:root {
         --bg-type: url(../images/background.png);
         --text-color: black;
         --text-blur: 0 0 15px rgba(255, 255, 255, 1), 
@@ -33,7 +20,7 @@
         --border-color: 2px black;
         --nav-gradient: linear-gradient(rgb(199, 199, 199), white);
         --scrollbar-thumb-color: linear-gradient(white, rgb(165, 165, 165));
-    } */
+    }
 
     .lightTheme {
         --bg-type: linear-gradient(white, rgb(165, 165, 165));
@@ -198,7 +185,7 @@
 
 /* links, buttons, etc */
 
-    /* a:link {
+    a:link {
         color: rgb(255, 60, 0);
         text-decoration: none;
         transition: letter-spacing 0.5s;
@@ -218,30 +205,6 @@
 
     a:active {
         color: rgb(255, 114, 49);
-        font-weight: bolder;
-        text-decoration: none;
-    } */
-
-    a:link {
-        color: rgb(0, 119, 255);
-        text-decoration: none;
-        transition: letter-spacing 0.5s;
-    }
-
-    a:visited {
-        color: rgb(255, 0, 170);
-        text-decoration: none;
-    }
-
-    a:hover {
-        color: rgb(49, 255, 111);
-        font-weight: bold;
-        text-decoration: underline;
-        letter-spacing: 10px;
-    }
-
-    a:active {
-        color: rgb(165, 0, 0);
         font-weight: bolder;
         text-decoration: none;
     }
