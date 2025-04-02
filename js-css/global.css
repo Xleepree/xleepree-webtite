@@ -190,7 +190,9 @@
     }
 
     .blogImage {
-        max-width: 41em;
+        max-width: 100%;
+        height: auto;
+        margin: 0 auto 1em auto;
         border: var(--border-color) solid;
     }
 
