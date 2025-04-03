@@ -10,17 +10,6 @@
 
     <body>
 
-        <div class="bannerContainer">
-            <img src="images/banner.png" class="banner">
-        </div>
-
-                <div class="nav">
-                    <a href="index.html">home</a>
-                    <a href="about.html">about</a>
-                    <a href="blog.html">blog</a>
-                    <a href="projects.html">projects</a>
-                </div>
-
                 <div class="mainContainer">
 
                     <img src="images/home.png" class="indicatorImage">
@@ -37,8 +26,6 @@
                     </ul>
                     <p>you should look around and stuffs</p>
                 </div>
-
-            </div>
 
             <div class="gridTemplate" style="grid-template-columns: 1fr 1fr;">
 
@@ -78,6 +65,57 @@
                 <hr>
 
                 <article>
+                    <h3>automatic loading</h3>
+                    <p><small>4-2-2025</small></p>
+                    <p>the banner, navigation, and footer are now loaded with javascript
+                    to lessen html repitition</p>
+                    <div class="codeContainer"><pre><code><small>
+js-css > global.js > loadContent(type)</small>
+
+function loadContent(type) {
+    if (type === "page") {
+        banner.innerHTML = "&lt;img src='images/banner.png' class='banner'&gt;"; 
+        nav.innerHTML = `
+            &lt;a href='index.html'&gt;home&lt;/a&gt;
+            &lt;a href='about.html'&gt;about&lt;/a&gt;
+            &lt;a href='blog.html'&gt;blog&lt;/a&gt;
+            &lt;a href='projects.html'&gt;projects&lt;/a&gt;`;
+        footer.innerHTML = `
+            &lt;button onclick='setTheme(&#39;&quot;&quot;&)'>default&lt;/button&gt;
+            &lt;button onclick='setTheme(&#39;lightTheme&#39;)'>light&lt;/button&gt;
+            &lt;button onclick='setTheme(&#39;darkTheme&#39;)'>dark&lt;/button&gt;
+            &lt;hr&gt;
+            &lt;p&gt;since nov 3, 2024 :: hosted with cloudflare&lt;/p&gt;
+            &lt;a href='https://github.com/Xleepree/xleepree-webtite'&gt;repository&lt;/a&gt;
+            &lt;a href='mailto:xleepree.pages.mail@gmail.com'&gt;contact&lt;/a&gt;`;
+    } else if (type === "blogPost") {
+        banner.innerHTML = "&lt;img src='../images/banner.png' class='banner'&gt;";
+        nav.innerHTML = `
+            &lt;a href='../index.html'&gt;home&lt;/a&gt;
+            &lt;a href='../about.html'&gt;about&lt;/a&gt;
+            &lt;a href='../blog.html'&gt;blog&lt;/a&gt;
+            &lt;a href='../projects.html'&gt;projects&lt;/a&gt;`;
+        footer.innerHTML = `
+            &lt;button onclick='setTheme(&#39;&quot;&quot;&)'>default&lt;/button&gt;
+            &lt;button onclick='setTheme(&#39;lightTheme&#39;)'>light&lt;/button&gt;
+            &lt;button onclick='setTheme(&#39;darkTheme&#39;)'>dark&lt;/button&gt;
+            &lt;hr&gt;
+            &lt;p&gt;since nov 3, 2024 :: hosted with cloudflare&lt;/p&gt;
+            &lt;a href='https://github.com/Xleepree/xleepree-webtite'&gt;repository&lt;/a&gt;
+            &lt;a href='mailto:xleepree.pages.mail@gmail.com'&gt;contact&lt;/a&gt;`;
+    } else {
+        console.log("unusable or nonexistent parameter.");
+        return;
+    }
+
+    document.body.prepend(banner);
+    document.body.prepend(nav);
+    document.body.append(footer);
+}
+                    </code></pre></div>
+                </article>
+
+                <article>
                     <h3>themes</h3>
                     <p><small>3-30-2025 (but at 7:36 PM)</small></p>
                     <p>added light and dark themes</p>
@@ -99,15 +137,6 @@
                     idk</p>
                 </article>
 
-            </div>
-
-            <div class="footer">
-                <button onclick="setTheme('')">default</button>
-                <button onclick="setTheme('lightTheme')">light</button>
-                <button onclick="setTheme('darkTheme')">dark</button>
-                <hr>
-                <p>since nov 3, 2024 :: hosted with cloudflare</p>
-                <a href="https://github.com/Xleepree/xleepree-webtite">repository</a> <a href="mailto:xleepree.pages.mail@gmail.com">contact</a>
             </div>
 
     </body>

@@ -9,7 +9,7 @@
 
 /* theme stuff */
 
-	:root {
+    :root {
         --bg-type: url(../images/background.png);
         --text-color: black;
         --text-blur: 0 0 15px rgba(255, 255, 255, 1), 
