@@ -101,6 +101,17 @@
         color: var(--text-color);
     }
 
+    .tableOfContents {
+        border: var(--border-color) solid;
+        padding: 2px;
+        color: var(--text-color);
+        background-image: var(--nav-gradient);
+        max-width: 60em;
+        text-align: center;
+        margin: 1em 0 1em 0;
+        box-shadow: var(--container-shadow);
+    }
+
     .galleryContainer {
         border: 2px rgb(0, 109, 58) solid;
         background-color: rgb(183, 255, 173);
@@ -181,6 +192,7 @@
         height: auto;
         margin: 0 auto 1em auto;
         border: var(--border-color) solid;
+        box-shadow: var(--container-shadow);
     }
 
 /* links, buttons, etc */
