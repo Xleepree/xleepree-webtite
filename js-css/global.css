@@ -121,11 +121,7 @@
             list-style-type: none;
         }
 
-        .tableOfContents:hover {
-            max-height: 300em;
-        }
-
-        .tableOfContents:active { /* for mobile */
+        .tableOfContents:focus {
             max-height: 300em;
         }
 
