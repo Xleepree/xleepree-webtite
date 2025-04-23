@@ -100,17 +100,30 @@
         -webkit-backdrop-filter: var(--container-blur);
         color: var(--text-color);
     }
+    
+    /* ToC */
+    
+        .tableOfContents {
+            border: var(--border-color) solid;
+            padding: 1em;
+            color: var(--text-color);
+            background-image: var(--nav-gradient);
+            max-width: 60em;
+            margin: 0 auto 1em auto;
+            box-shadow: var(--container-shadow);
+            overflow: hidden;
+            max-height: 3em;
+            transition: max-height 1s ease-in-out;
+        }
 
-    .tableOfContents {
-        border: var(--border-color) solid;
-        padding: 2px;
-        color: var(--text-color);
-        background-image: var(--nav-gradient);
-        max-width: 60em;
-        text-align: center;
-        margin: 1em 0 1em 0;
-        box-shadow: var(--container-shadow);
-    }
+        .tableOfContents > ul {
+            line-height: 1.01;
+            list-style-type: none;
+        }
+
+        .tableOfContents:hover {
+            max-height: 300em;
+        }
 
     .galleryContainer {
         border: 2px rgb(0, 109, 58) solid;
