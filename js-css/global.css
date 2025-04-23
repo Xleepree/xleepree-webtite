@@ -125,6 +125,10 @@
             max-height: 300em;
         }
 
+        .tableOfContents:active { /* for mobile */
+            max-height: 300em;
+        }
+
     .galleryContainer {
         border: 2px rgb(0, 109, 58) solid;
         background-color: rgb(183, 255, 173);
