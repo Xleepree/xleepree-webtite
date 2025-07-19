@@ -1,5 +1,5 @@
-# xleepree.pages.dev
+## xleepree-old.pages.dev
 
-this is my website<br>
-the sucessor to xleepree-webtite-legacy<br>
-look around or something
+this is not the repository of my current website by the way<br>
+look aroudn or go to the current one
+
