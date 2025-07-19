@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>home | xleepree.pages.dev</title>
+        <link rel="stylesheet" href="js-css/global.css">
+        <link rel="icon" type="image/x-icon" href="images/icon.png">
+        <script src="js-css/global.js"></script>
+    </head>
+
+    <body>
+
+                <div class="mainContainer">
+
+                    <img src="images/home.png" class="indicatorImage">
+
+                    <h1>home</h1>
+                    <p>welcome to my amazing website of coolness<br>
+                    i do things like a blog<br>
+                    made this because:<p>
+                    <ul>
+                        <li>i can code stuffs</li>
+                        <li>originally, my friend <a href="https://taxevaiden.pages.dev">taxevaiden</a> had a website and knew how to code stuffs
+                        so i wanted to do that too</li>
+                        <li>i just did</li>
+                    </ul>
+                    <p>you should look around and stuffs</p>
+                </div>
+
+            <div class="gridTemplate" style="grid-template-columns: 1fr 1fr;">
+
+                <div>
+                    <h2>Q&A</h2>
+                    <p><b>Q: How do I make a website?</b><br>
+                    A: i have a <a href="https://xleepree.pages.dev/pages/blog-posts/how2makewebsite.html">blog post</a> about it<br>
+                    <br>
+                    <b>Q: Where be the source code?</b><br>
+                    A: it is able to be viewed with inspect element or in the <a href="https://github.com/Xleepree/xleepree-webtite">github repository</a><br>
+                    <br>
+                    <b>Q: Do you take showers?</b><br>
+                    A: yes</p>
+                </div>
+
+                <div>
+                    <h2>notes</h2>
+                    <ul>
+                        <li>please enable javascript</li>
+                        <li>this website is designed to be (naturally) mobile friendly</li>
+                        <li>mind any bugs: this is a work in progress</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="mainContainer">
+                <h2>news</h2>
+                <p>i am going on vacatioooon to the dominican republic<br>
+                i'll be unavailable from from now to like june 22nd</p>
+                <p><small>6-6-2025</small></p>
+            </div>
+
+            <div class="scrollableContainer">
+                <img src="images/changelog.png" class="indicatorImage">
+                <h2>changelog</h2>
+                <hr>
+
+                <article>
+                    <h3>container gradients</h3>
+                    <p><small>6-6-2025</small></p>
+                    <p>the containers in light and dark mode used to be transparent<br>
+                    I didn't like that, so now they have the same gradient that the background does</p>
+                </article>
+
+                <article>
+                    <h3>ToC fix</h3>
+                    <p><small>4-22-2025</small></p>
+                    <p>the table of contents is now better</p>
+                </article>
+
+                <article>
+                    <h3>table of contents</h3>
+                    <p><small>4-21-2025</small></p>
+                    <p>blog posts now have an inconvinient ToC that will be later fixed</p>
+                </article>
+
+                <article>
+                    <h3>automatic loading</h3>
+                    <p><small>4-2-2025</small></p>
+                    <p>the banner, navigation, and footer are now loaded with javascript
+                    to lessen html repitition</p>
+                    <div class="codeContainer"><pre><code><small>
+js-css > global.js > loadContent(type)</small>
+
+function loadContent(type) {
+    if (type === "page") {
+        banner.innerHTML = "&lt;img src='images/banner.png' class='banner'&gt;"; 
+        nav.innerHTML = `
+            &lt;a href='index.html'&gt;home&lt;/a&gt;
+            &lt;a href='about.html'&gt;about&lt;/a&gt;
+            &lt;a href='blog.html'&gt;blog&lt;/a&gt;
+            &lt;a href='projects.html'&gt;projects&lt;/a&gt;`;
+        footer.innerHTML = `
+            &lt;button onclick='setTheme(&#39;&quot;&quot;&)'>default&lt;/button&gt;
+            &lt;button onclick='setTheme(&#39;lightTheme&#39;)'>light&lt;/button&gt;
+            &lt;button onclick='setTheme(&#39;darkTheme&#39;)'>dark&lt;/button&gt;
+            &lt;hr&gt;
+            &lt;p&gt;since nov 3, 2024 :: hosted with cloudflare&lt;/p&gt;
+            &lt;a href='https://github.com/Xleepree/xleepree-webtite'&gt;repository&lt;/a&gt;
+            &lt;a href='mailto:xleepree.pages.mail@gmail.com'&gt;contact&lt;/a&gt;`;
+    } else if (type === "blogPost") {
+        banner.innerHTML = "&lt;img src='../images/banner.png' class='banner'&gt;";
+        nav.innerHTML = `
+            &lt;a href='../index.html'&gt;home&lt;/a&gt;
+            &lt;a href='../about.html'&gt;about&lt;/a&gt;
+            &lt;a href='../blog.html'&gt;blog&lt;/a&gt;
+            &lt;a href='../projects.html'&gt;projects&lt;/a&gt;`;
+        footer.innerHTML = `
+            &lt;button onclick='setTheme(&#39;&quot;&quot;&)'>default&lt;/button&gt;
+            &lt;button onclick='setTheme(&#39;lightTheme&#39;)'>light&lt;/button&gt;
+            &lt;button onclick='setTheme(&#39;darkTheme&#39;)'>dark&lt;/button&gt;
+            &lt;hr&gt;
+            &lt;p&gt;since nov 3, 2024 :: hosted with cloudflare&lt;/p&gt;
+            &lt;a href='https://github.com/Xleepree/xleepree-webtite'&gt;repository&lt;/a&gt;
+            &lt;a href='mailto:xleepree.pages.mail@gmail.com'&gt;contact&lt;/a&gt;`;
+    } else {
+        console.log("unusable or nonexistent parameter.");
+        return;
+    }
+
+    document.body.prepend(banner);
+    document.body.prepend(nav);
+    document.body.append(footer);
+}
+                    </code></pre></div>
+                </article>
+
+                <article>
+                    <h3>themes</h3>
+                    <p><small>3-30-2025 (but at 7:36 PM)</small></p>
+                    <p>added light and dark themes</p>
+                </article>
+                
+                <article>
+                    <h3>the new website is out!</h3>
+                    <p><small>3-30-2025</small></p>
+                    <p>not much to say<br>
+                    isn't it cool?<br>
+                    <br>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur volutpat leo justo, quis viverra eros condimentum non. 
+                    Quisque luctus lorem ut leo tempor convallis. Mauris ante ex, accumsan vitae velit eu, tristique sodales orci. Proin vitae imperdiet ex. 
+                    Aenean volutpat enim a dolor varius auctor. Ut finibus viverra porta. Nulla ac nunc sit amet ipsum dictum finibus. Morbi eu sodales turpis, in venenatis elit. 
+                    Cras scelerisque neque eget nisi sodales sollicitudin. Morbi venenatis blandit quam a aliquam.
+                    Nullam interdum turpis lectus, eget suscipit tellus condimentum feugiat.<br>
+                    <br>
+                    themes are to come soon i think<br>
+                    idk</p>
+                </article>
+
+            </div>
+
+    </body>
+
+</html>
