@@ -2,6 +2,6 @@
   "name": "xleepree",
   "compatibility_date": "2025-07-19",
   "assets": {
-    "not_found_handling": "./404.html"
+    "not_found_handling": ["single-page-application","404-page","none"]
   }
 }
