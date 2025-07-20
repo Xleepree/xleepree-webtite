@@ -1,6 +1,9 @@
 let blogPost = false;
+let pageNotFound = false;
 if (window.location.pathname.includes("/blog-posts/")) {
     blogPost = true;
+} else if (window.location.pathname.includes("/404")) {
+    pageNotFound = true;
 }
 
 // theme
@@ -61,6 +64,18 @@ if (window.location.pathname.includes("/blog-posts/")) {
                     <hr>
                     <p>since nov 3, 2024 :: hosted with cloudflare</p>
                     <a href="https://github.com/Xleepree/xleepree-webtite">repository</a> <a href="mailto:xleepree.pages.mail@gmail.com">contact</a>`;
+            } else if (type === "pageNotFound") {
+                banner.innerHTML = "<img src='https://xleepree.pages.dev/images/banner.png' class='banner'>"; 
+                nav.innerHTML = `<a href="https://xleepree.pages.dev/index.html">home</a>
+                    <a href="https://xleepree.pages.dev/about.html">about</a>
+                    <a href="https://xleepree.pages.dev/blog.html">blog</a>
+                    <a href="https://xleepree.pages.dev/projects.html">projects</a>`;
+                footer.innerHTML = `<button onclick="setTheme('')">default</button>
+                    <button onclick="setTheme('lightTheme')">light</button>
+                    <button onclick="setTheme('darkTheme')">dark</button>
+                    <hr>
+                    <p>since nov 3, 2024 :: hosted with cloudflare</p>
+                    <a href="https://github.com/Xleepree/xleepree-webtite">repository</a> <a href="mailto:xleepree.pages.mail@gmail.com">contact</a>`;
             } else {
                 console.log("unusable or nonexistent parameter.");
                 return;
@@ -74,6 +89,10 @@ if (window.location.pathname.includes("/blog-posts/")) {
     if (blogPost === true) {
         document.addEventListener("DOMContentLoaded", () => {
             loadContent('blogPost');
+        });
+    } else if (pageNotFound === true) {
+        document.addEventListener("DOMContentLoaded", () => {
+            loadContent('pageNotFound');
         });
     } else {
         document.addEventListener("DOMContentLoaded", () => {
