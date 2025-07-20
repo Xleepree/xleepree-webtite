@@ -1,8 +1,0 @@
-{
-  "name": "xleepree",
-  "compatibility_date": "2025-07-19",
-  "assets": {
-    "directory": "./",
-    "not_found_handling": "404-page"
-  }
-}
