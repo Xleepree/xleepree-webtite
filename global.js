@@ -2,7 +2,7 @@ let blogPost = false;
 let pageNotFound = false;
 if (window.location.pathname.includes("/blog-posts/")) {
     blogPost = true;
-} else if (window.location.pathname.includes("/404")) {
+} else if (document.getElementById("catch404")) {
     pageNotFound = true;
 }
 
