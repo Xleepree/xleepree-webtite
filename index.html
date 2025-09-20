@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>xleepree : home</title>
+		<link rel="stylesheet" href="asset/global.css">
+		<link rel="icon" href="asset/favicon.png">
+		<script src="asset/global.js" defer></script>
+    </head>
+
+    <body>
+
+        <div id="pageBody">
+            <div id="pageBodySectionA">
+                <img src="asset/images/home.png">
+            </div>
+            <div class="page-body-section-B">
+                <span class="title">
+                    <h1>home</h1>
+                    <p><i>Welcome: how did you get here?</i></p>
+                </span>
+                <hr>
+                <p>
+                    Hello! This is my website where I make blog posts every few weeks or so (working on that,) and just put stuff about me. ...Again, how
+                    are you here?<br>
+                    <b>I made this website because:</b>
+                </p>
+                    <ul>
+                        <li>Coding websites is fun. For the most part. In fact, this is the third redesign.</li>
+                        <li>Profiles on social media sites have limited word counts and you have to maintain them whenever changed. This website aims to
+                        make that easier for me. Social media profiles that have long descriptions feel unnatural. Cringe, even. This is 
+                        better.</li>
+                        <li>I think this is cool. You may disagree.</li>
+                    </ul>
+                <p>So yeah. Look around, maybe you'll find something of note.</p>
+
+                <h2 class="subsection-header">latest blog post</h2>
+                <p><small>useless info that may tickle your brain</small></p>
+                <div class="blog-post-latest">
+                    <div onclick="navC('blog/clippu.html')">
+                        <img src="asset/images/blog/clippu.png">
+                        <h2>why i changed my profile picture to a clippy <p><small>8-17-2025</small></p></h2>
+                        <br>
+                        <p>You should too.</p>
+                    </div>
+                </div>
+
+                <h2 class="subsection-header">latest status</h2>
+                <p><small>what's going on right now</small></p>
+                <p class="status-now"><b>9-14-2025:</b> "school was uhh<br>
+                it's boring"</p>
+
+                <h2 class="subsection-header">notes</h2>
+                <p><small>wasn't i just talking about things of note?</small></p>
+                <ul>
+                    <li>The desktop/tablet version of this website is <b>(OBVIOUSLY)</b> not supposed to be used on phones. Please don't request the desktop
+                    version if you're on a phone, it really is the same. Except the layout doesn't fold in on itself.</li>
+                    <li>Turn on JavaScript in your browser settings if you want to view this website at all. The navigation will break entirely if you have
+                    it off.</li>
+                    <li>This website was designed using <b>Vivaldi</b> (Chromium) as the browser to preview it on a <b>1920x1080</b> display. The layout may
+                    look weird on ultrawide displays, maybe not. I don't actually know, because I don't own one.</li>
+                </ul>
+
+                <h2 class="subsection-header">q&a</h2>
+                <p><small>i can answer your questions.</small></p>
+                <p>
+                    <b>Q: where is the source code</b><br>
+                    A: The <a href="https://github.com/Xleepree/xleepree-webtite">repository,</a> or you can inspect element with your browser<br>
+                    <br>
+                    <b>Q: why is the navigation broken</b><br>
+                    A: I've got an even better question for you: why do you have JavaScript off? (If you somehow miss the point, 
+                    <i>turn on JavaScript in your browser settings, I already said this in the notes</i>)<br>
+                    <br>
+                    <b>Q: do you shower</b><br>
+                    A: You don't need to know that! (Yeah)
+                </p>
+                
+                <h2 class="subsection-header">changelog</h2>
+                <p><small>formal website updates because my git commits are deranged</small></p>
+                <div class="changelog">
+                    <h1>can i just be done (v3.0.0) <small>9-14-2025</small></h1>
+                    <p>Welcome to v3.0.0. I talk differently. The website is different.<br>
+                    It has been redesigned from scratch for the third time and right now
+                    is coming with updated info and a new blog post and status.<br>
+                    <br>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+                    nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit 
+                    in voluptate velit esse AAAAAA cillum dolore eu fugiat nulla pariatur. Excepteur sint 
+                    occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim 
+                    id est laborum.</p>
+
+                    <p style="opacity: 0.5">// WARNING! :: IRRELEVANT TO THIS SITE (v2.0.0)<br>
+                    vvvvvvvvvvvv</p>
+                    
+                    <h2>container gradients <small>6-6-2025</small></h2>
+                    <p>the containers in light and dark mode used to be transparent<br>
+                    I didn't like that, so now they have the same gradient that the background does</p>
+
+                    <h2>table of contents <small>4-21-2025</small></h2>
+                    <p>blog posts now have an inconvenient ToC that will be later fixed</p>
+
+                    <h2>automatic loading <small>4-2-2025</small></h2>
+                    <p>the banner, navigation, and footer are now loaded with javascript to lessen html repitition</p>
+                    <div class="code-block">
+                        <pre><code>
+        <small>
+        js-css > global.js > loadContent(type)
+        </small>
+        function loadContent(type) &#123;
+            if (type === "page") &#123;
+                banner.innerHTML = "&lt;img src='images/banner.png' class='banner'&gt;"; 
+                nav.innerHTML = `
+                    &lt;a href='index.html'&gt;home&lt;/a&gt;
+                    &lt;a href='about.html'&gt;about&lt;/a&gt;
+                    &lt;a href='blog.html'&gt;blog&lt;/a&gt;
+                    &lt;a href='projects.html'&gt;projects&lt;/a&gt;`;
+                footer.innerHTML = `
+                    &lt;button onclick='setTheme(&#39;&quot;&quot;&)'>default&lt;/button&gt;
+                    &lt;button onclick='setTheme(&#39;lightTheme&#39;)'>light&lt;/button&gt;
+                    &lt;button onclick='setTheme(&#39;darkTheme&#39;)'>dark&lt;/button&gt;
+                    &lt;hr&gt;
+                    &lt;p&gt;since nov 3, 2024 :: hosted with cloudflare&lt;/p&gt;
+                    &lt;a href='https://github.com/Xleepree/xleepree-webtite'&gt;repository&lt;/a&gt;
+                    &lt;a href='mailto:xleepree.pages.mail@gmail.com'&gt;contact&lt;/a&gt;`;
+            &#125; else if (type === "blogPost") &#123;
+                banner.innerHTML = "&lt;img src='../images/banner.png' class='banner'&gt;";
+                nav.innerHTML = `
+                    &lt;a href='../index.html'&gt;home&lt;/a&gt;
+                    &lt;a href='../about.html'&gt;about&lt;/a&gt;
+                    &lt;a href='../blog.html'&gt;blog&lt;/a&gt;
+                    &lt;a href='../projects.html'&gt;projects&lt;/a&gt;`;
+                footer.innerHTML = `
+                    &lt;button onclick='setTheme(&#39;&quot;&quot;&)'>default&lt;/button&gt;
+                    &lt;button onclick='setTheme(&#39;lightTheme&#39;)'>light&lt;/button&gt;
+                    &lt;button onclick='setTheme(&#39;darkTheme&#39;)'>dark&lt;/button&gt;
+                    &lt;hr&gt;
+                    &lt;p&gt;since nov 3, 2024 :: hosted with cloudflare&lt;/p&gt;
+                    &lt;a href='https://github.com/Xleepree/xleepree-webtite'&gt;repository&lt;/a&gt;
+                    &lt;a href='mailto:xleepree.pages.mail@gmail.com'&gt;contact&lt;/a&gt;`;
+            &#125; else &#123;
+                console.log("unusable or nonexistent parameter.");
+                return;
+            &#125;
+
+            document.body.prepend(banner);
+            document.body.prepend(nav);
+            document.body.append(footer);
+        &#125;
+
+                        </code></pre>
+                    </div>
+
+                    <h2>themes <small>3-30-2025 (but at 7:36 PM)</small></h2>
+                    <p>added light and dark themes</p>
+
+                    <h1>the new website is out! (v2.0.0) <small>3-30-2025</small></h1>
+                    <p>not much to say<br>
+                    isn't it cool?<br>
+                    <br>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing 
+                    elit. Curabitur volutpat leo justo, quis viverra 
+                    eros condimentum non. Quisque luctus lorem ut leo 
+                    tempor convallis. Mauris ante ex, accumsan vitae 
+                    velit eu, tristique sodales orci. Proin vitae 
+                    imperdiet ex. Aenean volutpat enim a dolor 
+                    varius auctor. Ut finibus viverra porta. Nulla ac 
+                    nunc sit amet ipsum dictum finibus. Morbi eu 
+                    sodales turpis, in venenatis elit. Cras scelerisque 
+                    neque eget nisi sodales sollicitudin. Morbi 
+                    venenatis blandit quam a aliquam. Nullam 
+                    interdum turpis lectus, eget suscipit tellus 
+                    condimentum feugiat.<br>
+                    <br>
+                    themes are to come soon i think<br>
+                    idk</p>
+
+                    <p style="opacity: 0.5">// WARNING! :: EVEN MORE IRRELEVANT TO THIS SITE (v1.0.0)<br>
+                    vvvvvvvvvvvv</p>
+
+                    <h2>automatic loading <small>1-22-2025 at 9:57 AM</small></h2>
+                    <p>stuff like the nav, banner, and footer load automatically now</p>
+
+                    <h2><i>localStorage</i> <small>1-20-2025 at 1:43 PM</small></h2>
+                    <p>changed the themes thing to use <i>localStorage</i><br>
+                    it should save to the browser now<br>
+                    credit to <a href="https://taxevaiden.pages.dev">taxevaiden</a> for the idea</p>
+
+                    <h2>solarized <small>1-11-2025 at 8:37 PM</small></h2>
+                    <p>added solarized themes and changed the website design (again)</p>
+
+                    <h2>banner <small>12-30-2024 at 5:05 PM</small></h2>
+                    <p>forget minimizing things! i added a gigantic banner!</p>
+
+                    <h2>minimizing <small>12-28-2024 at 11:25 PM</small></h2>
+                    <p>added:</p>
+                    <ul>
+                        <li>sunrise theme</li>
+                        <li>high contrast theme</li>
+                    </ul>
+                    <p>changed:</p>
+                    <ul>
+                        <li>the overall website design</li>
+                        <li>some minor stuff</li>
+                    </ul>
+
+                    <h2>theme saving <small>12-25-2024 at 11:48 PM</small></h2>
+                    <p>themes save now<br>
+                    i used <i>sessionStorage</i> so it doesn't save between tabs but as long as
+                    you're in a tab it should save with what theme you have<br>
+                    making it so it saves between tabs would use cookies and i think and idk
+                    how to do that yet</p>
+
+                    <h2>themes <small>12-25-2024 at 11:48 PM</small></h2>
+                    <ul>
+                        <li>added a theme switcher that doesn't save at all</li>
+                        <li>other minor stuff</li>
+                    </ul>
+                    <p>i can scream at people to enable javascript now in the notes :sunglasses:</p>
+
+                    <h2>icon placement <small>12-25-2024 at 10:50 AM</small></h2>
+                    <p>i changed where the <i>new icon for ze website</i> is<br>
+                    people said it was ugly so i think it is better now (hopefully)
+                    also added back buttons on the blogpost pages because why not</p>
+
+                    <h2>new icon ._. <small>12-13-2024 at 7:21 PM</small></h2>
+                    <p>i added a new icon for ze website</p>
+
+                    <h2>image placements <small>12-3-2024 at 4:33 PM</small></h2>
+                    <p>i changed where the images went and also organized some stuffs into folders</p>
+
+                    <h2>some images <small>11-30-2024 at 5:29 PM</small></h2>
+                    <p>i added some more images<br>
+                    that's kind of it</p>
+
+                    <h1>tax evader's note <small>11-28-2024 at 2:28 PM</small></h1>
+                    <p>hey guys i kinda forked his repo but i made stuff a lot... better<br>
+                    <br>
+                    but anyways, i'll just give you a <b>proper</b> list of what i did,.,.,.,.</p>
+                    <ul>
+                        <li>cleaned EVERYTHING up</li>
+                        <li>organized everything</li>
+                        <li>removed and added stuff</li>
+                        <li>made blog post format better</li>
+                        <li>used actual &#60;li&#62; elements...</li>
+                        <li>got rid of &#60;style&#62; element so he wouldn't cry tweaking stuff</li>
+                    </ul>
+                    <p>the code was messy but i fixed it! hooray! teehee!<br>
+                    <br>
+                    ok bye<br>
+                    <br>
+                    - <a href="https://taxevaiden.pages.dev">taxevaiden</a></p>
+
+                    <h2>pages are finished <small>11-28-2024 at 12:40 PM</small></h2>
+                    <p>alright, this is a lot more than the title lets on<br>
+                    i'll give you a list:</p>
+                    <ul>
+                        <li>blog is actually more like a blog</li>
+                        <li>made the projects page</li>
+                        <li>made the about page</li>
+                        <li>added Q&A</li>
+                        <li>the website has an icon now</li>
+                        <li>navigation is no longer work in progress!!!!!</li>
+                    </ul>
+                    <p>so yeah i did a lot of stuffs<br>
+                    i will add some other things when i feel like it</p>
+
+                    <h2>i can say random stuff <small>11-27-2024 at 9:35 AM</small></h2>
+                    <p>the blog page is done <br>
+                    i can say unrelated things now<br>
+                    thought of adding a comment box but i don't know how i'm going to do that</p>
+
+                    <h1>there's a changelog now (v1.0.0) <small>11-27-2024 at 12:34 AM</small></h1>
+                    <p>so uhh, yeah<br>
+                    pretty self explanatory, i made the changelog page<br>
+                    aside from that, i added a thing with the website scaling so it fits better or something
+                    i forgot how it worked<br>
+                    nothing else other than a few tweaks with the code which are completely unoticable
+                    unless you look at the code itself<br>
+                    i'm tired, i'll work on the other pages tommorow</p>
+
+                    <h3>Website made on November 3rd, 2024.</h3>
+
+                </div>
+
+                <br>
+                <br>
+                <br>
+                <br>
+            </div>
+        </div>
+
+    </body>
+
+</html>
