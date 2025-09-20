@@ -23,9 +23,9 @@
     }
 
     screenCT.innerHTML = `
-        <button id="screenButton" onclick="screenF()"><b> > </b></button>
+        <button id="screenButton"><b> > </b></button>
         <div id="screen">
-            <img src="/favicon.png" class="screen-icon">
+            <img src="https://xleepree.pages.dev/asset/favicon.png" class="screen-icon">
             <h1 style="margin-bottom: -0.5em;">xleepree.pages.dev</h1>
             <p style="margin-bottom: -0.1em;">version 3.0.0 :: est. Nov 3, 2024 :: hosted with Cloudflare</p>
             <div><a href="mailto:xleepree.pages.mail@gmail.com">contact</a> // <a href="https://github.com/Xleepree/xleepree-webtite">repository</a></div>
@@ -40,11 +40,6 @@
     `
 //
 
-// variable
-const screen = document.getElementById("screen");
-const screenButton = document.getElementById("screenButton");
-//
-
 // functions for stuffs
     function viewportIsPortrait() { return window.innerHeight > window.innerWidth; }
     function pageIsBlog() { return window.location.pathname.includes("blog/");  }
@@ -56,7 +51,6 @@ function navC(dest) {
 }
 
 // components (loading)
-    
     function loadNavbar() {
         document.body.append(navbarCT);
     }
@@ -64,52 +58,51 @@ function navC(dest) {
     function loadScreen() {
         document.body.prepend(screenCT);
     }
-
-    window.addEventListener("DOMContentLoaded", () => {
-        loadNavbar();
-        loadScreen();
-    });
-//
-
-// anim
-        window.addEventListener("beforeunload", () => {
-            requestAnimationFrame(() => {
-                document.body.classList.remove('ready');
-                screenButton.classList.remove('ready');
-            });
-        });
-
-        window.addEventListener("DOMContentLoaded", () => { 
-            requestAnimationFrame(() => {
-                document.body.classList.add('ready');
-                screenButton.classList.add('ready');
-            });
-        });
-//
-
-// screen (soon to be flyout menu)
-    if (viewportIsPortrait() === true ) {
-        screenButton.innerHTML = `>`
-    }
-
-    function screenF() {
-        if (screen.classList.contains("initialized")) {
-            screen.classList.remove("initialized");
-        } else {
-            screen.classList.add("initialized");
-        }
-    }
 //
 
 // theme 
-    function setTheme(theme) {
-        document.documentElement.classList.remove("dark");
-        if (theme) { document.documentElement.classList.add(theme); }
-        localStorage.setItem("theme", theme);
-    }
+function setTheme(theme) {
+    document.documentElement.classList.remove("dark");
+    if (theme) { document.documentElement.classList.add(theme); }
+    localStorage.setItem("theme", theme);
+}
+
+// listen
+    window.addEventListener("beforeunload", () => {
+        const screenButton = document.getElementById("screenButton");
+        requestAnimationFrame(() => {
+            document.body.classList.remove('ready');
+            screenButton.classList.remove('ready');
+        });
+    });
 
     document.addEventListener("DOMContentLoaded", () => {
         const savedTheme = localStorage.getItem("theme") || "";
         if (savedTheme) { document.documentElement.classList.add(savedTheme); }
+
+        loadNavbar();
+        loadScreen();
+
+        const screen = document.getElementById("screen");
+        const screenButton = document.getElementById("screenButton");
+
+        function screenF() {
+            if (screen.classList.contains("initialized")) {
+                screen.classList.remove("initialized");
+            } else {
+                screen.classList.add("initialized");
+            }
+        }
+
+        screenButton.addEventListener("click", () => { screenF(); });
+
+        requestAnimationFrame(() => {
+            document.body.classList.add('ready');
+            screenButton.classList.add('ready');
+        });
+
+        if (viewportIsPortrait() === true ) {
+            screenButton.innerHTML = `>`
+        }
     });
 //
