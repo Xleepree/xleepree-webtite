@@ -13,11 +13,12 @@
     .status-now { font-size: 110%; }
     .blog-title { margin-bottom: -0.4em; }
     .blog-title > p { display: inline; }
-    p { font-family: 'Fira Sans', sans-serif }
-    ul { font-family: 'Fira Sans', sans-serif }
+    .headerfont { font-family: 'Special Gothic Expanded One', sans-serif; }
+    p { font-family: 'Fira Sans', sans-serif; }
+    ul { font-family: 'Fira Sans', sans-serif; }
     li { margin-bottom: 5px; }
-    button { font-family: 'Special Gothic Expanded One', sans-serif }
-    code { font-family: 'JetBrains Mono', monospace }
+    button { font-family: 'Special Gothic Expanded One', sans-serif; }
+    code { font-family: 'JetBrains Mono', monospace; }
     hr { border: 2px var(--text-color) dotted; }
 /**/
 
@@ -113,10 +114,10 @@
         overflow-x: hidden;
         padding: 0 20vw 0 20vw;
         background-image: linear-gradient(
-            to top, 
-            var(--body-background), 
+            to top,
             var(--body-background),
-            var(--body-background), 
+            var(--body-background),
+            var(--body-background),
             var(--body-background),
             var(--orange)
         );
@@ -454,9 +455,9 @@
 
         #pageBodySectionA {
             background-image: linear-gradient(
-                to top, 
-                var(--body-background), 
-                var(--body-background), 
+                to top,
+                var(--body-background),
+                var(--body-background),
                 var(--orange)
             );
             box-shadow: 0 2em 1em var(--body-background);
@@ -523,7 +524,7 @@
         .blog-posts-grid {
             grid-template-columns: 1fr;
         }
-        
+
         .blog-content > img {
             width: 100%;
         }
