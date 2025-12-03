@@ -171,6 +171,8 @@
             var(--orange),
             var(--orange)
         );
+        background-size: cover;
+        min-height: 100vh;
     }
 
     .page-container {
