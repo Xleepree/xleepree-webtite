@@ -1,43 +1,75 @@
 // component (sorta clunky but it works)
-    const navbarCT = document.createElement("div");
-    const screenCT = document.createElement("div");
-
-    navbarCT.innerHTML = `
-        <div class="navbar">
-            <a href="index.html" id="linkHome">home</a>
-            <a href="about.html" id="linkAbout">about</a>
-            <a href="blog.html" id="linkBlog">blog</a>
-            <a href="projects.html" id="linkProjects">projects</a>
+    const navigatorCT = document.createElement("div");
+    navigatorCT.id = "navigator";
+    navigatorCT.innerHTML = `
+        <div class="navigator-links" style="float: left">
+            <a href="index.html">home</a>
+            <a href="about.html">about</a>
+        </div>
+        <div id="navigatorMenuIcon" onclick="toggleNavigatorMenu()">
+            <img src="asset/favicon.png">
+        </div>
+        <div class="navigator-links" style="float: right">
+            <a href="blog.html">blog</a>
+            <a href="projects.html">projects</a>
         </div>
     `
-
     if (pageIsBlog() == true) {
-        navbarCT.innerHTML = `
-            <div class="navbar">
-                <a href="../index.html" id="linkHome">home</a>
-                <a href="../about.html" id="linkAbout">about</a>
-                <a href="../blog.html" id="linkBlog">blog</a>
-                <a href="../projects.html" id="linkProjects">projects</a>
+        navigatorCT.innerHTML = `
+            <div class="navigator-links" style="float: left">
+                <a href="../index.html">home</a>
+                <a href="../about.html">about</a>
+            </div>
+            <div id="navigatorMenuIcon" onclick="toggleNavigatorMenu()">
+                <img src="../asset/favicon.png">
+            </div>
+            <div class="navigator-links" style="float: right">
+                <a href="../blog.html">blog</a>
+                <a href="../projects.html">projects</a>
             </div>
         `
     }
+    function loadNavigator() {
+        document.body.prepend(navigatorCT);
+    }
 
-    screenCT.innerHTML = `
-        <button id="screenButton"><b> > </b></button>
-        <div id="screen">
-            <img src="https://xleepree.pages.dev/asset/favicon.png" class="screen-icon">
-            <h1 style="margin-bottom: -0.5em;">xleepree.pages.dev</h1>
-            <p style="margin-bottom: -0.1em;">version 3.0.0 :: est. Nov 3, 2024 :: hosted with Cloudflare</p>
-            <div><a href="mailto:xleepree.pages.mail@gmail.com">contact</a> // <a href="https://github.com/Xleepree/xleepree-webtite">repository</a></div>
-            <div class="theme-switcher">
-                <p>
-                    theme:
-                    <button onclick="setTheme('')">light</button>
-                    <button onclick="setTheme('dark')">dark</button>
-                </p>
-            </div>
-        </div>
-    `
+    const pageBackgroundCT = document.createElement("div");
+    pageBackgroundCT.id = "pageBackground";
+    function loadPageBackground() {
+        document.body.prepend(pageBackgroundCT);
+    }
+
+    const navigatorMenuCT = document.createElement("div");
+    navigatorMenuCT.id = "navigatorMenu";
+    navigatorMenuCT.innerHTML = `
+        <h1 style="margin-bottom: -0.5em">xleepree.pages.dev</h1>
+        <p style="margin-bottom: -0.8em">version 3.0.0 :: est. Nov 3, 2024 :: hosted with Cloudflare</p>
+        <p>
+            <a href="https://github.com/Xleepree/xleepree-webtite">repository </a>
+            ::
+            <a href="mailto:xleepree.pages.mail@gmail.com"> contact</a>
+        </p>
+        <span id="navigatorMenuThemeButtons">
+            <button onclick="setTheme('')">light</button>
+            <button onclick="setTheme('dark')">dark</button>
+        </span>
+    `;
+    let navigatorMenuToggleInt = 0;
+    function toggleNavigatorMenu() {
+        if (navigatorMenuToggleInt == 0) {
+            document.body.prepend(navigatorMenuCT);
+            const navigatorMenu = document.getElementById("navigatorMenu");
+            navigatorMenu.style.animation = "animFadeIn 0.2s ease-in-out";
+            navigatorMenu.style.opacity = "1";
+            navigatorMenuToggleInt = 1;
+        } else if (navigatorMenuToggleInt == 1) {
+            const navigatorMenu = document.getElementById("navigatorMenu");
+            navigatorMenu.style.animation = "animFadeOut 0.2s ease-in-out"
+            navigatorMenu.style.opacity = "0";
+            setTimeout(() => { navigatorMenu.remove(); }, 300);
+            navigatorMenuToggleInt = 0;
+        }
+    }
 //
 
 // functions for stuffs
@@ -50,16 +82,6 @@ function navC(dest) {
     window.location.pathname = dest;
 }
 
-// components (loading)
-    function loadNavbar() {
-        document.body.append(navbarCT);
-    }
-
-    function loadScreen() {
-        document.body.prepend(screenCT);
-    }
-//
-
 // theme 
 function setTheme(theme) {
     document.documentElement.classList.remove("dark");
@@ -69,10 +91,8 @@ function setTheme(theme) {
 
 // listen
     window.addEventListener("beforeunload", () => {
-        const screenButton = document.getElementById("screenButton");
         requestAnimationFrame(() => {
             document.body.classList.remove('ready');
-            screenButton.classList.remove('ready');
         });
     });
 
@@ -80,29 +100,11 @@ function setTheme(theme) {
         const savedTheme = localStorage.getItem("theme") || "";
         if (savedTheme) { document.documentElement.classList.add(savedTheme); }
 
-        loadNavbar();
-        loadScreen();
-
-        const screen = document.getElementById("screen");
-        const screenButton = document.getElementById("screenButton");
-
-        function screenF() {
-            if (screen.classList.contains("initialized")) {
-                screen.classList.remove("initialized");
-            } else {
-                screen.classList.add("initialized");
-            }
-        }
-
-        screenButton.addEventListener("click", () => { screenF(); });
+        loadNavigator();
+        loadPageBackground();
 
         requestAnimationFrame(() => {
             document.body.classList.add('ready');
-            screenButton.classList.add('ready');
         });
-
-        if (viewportIsPortrait() === true ) {
-            screenButton.innerHTML = `>`
-        }
     });
 //

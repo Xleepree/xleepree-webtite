@@ -11,95 +11,92 @@
 
     <body>
 
-        <div id="pageBody">
-            <div id="pageBodySectionA">
-                <div class="blog-posts-ToC">
-                    <h2>table of contents</h2>
+        <div class="page-container">
+            <h1 class="blog-title">Automatic loading: <s>no</s> yes. <p><small>3-29-2025</small></p></h1>
+            <p>i'm <s>not</s> adding automatic loading to my website <s>anymore</s></p>
+            <img class="blog-posts-image" src="../asset/images/blog/automatic-loading.png">
+            <div class="blog-posts-ToC">
+                <h2>table of contents</h2>
 
-                    <button onclick="navC('../blog.html')">back >></button>
-                    <p>
-                        <b><a href="#blog1">why?</a></b><br>
-                        <b><a href="#blog2">wait.. </a><small>4-1-2025</small></b><br>
-                        <a href="#blog2-sub1">=-- the javascript part</a><br>
-                        <a href="#blog2-sub2">=-- conclusion</a><br>
-                        <b><a href="#blog3">wait, again?? <small>8-12-2025</small></a></b>
-                    </p>
-                </div>
+                <button onclick="navC('../blog.html')">back >></button>
+                <p>
+                    <b><a href="#blog1">why?</a></b><br>
+                    <b><a href="#blog2">wait.. </a><small>4-1-2025</small></b><br>
+                    <a href="#blog2-sub1">=-- the javascript part</a><br>
+                    <a href="#blog2-sub2">=-- conclusion</a><br>
+                    <b><a href="#blog3">wait, again?? <small>8-12-2025</small></a></b>
+                </p>
             </div>
-            <div class="page-body-section-B">
-                <h1 class="blog-title">Automatic loading: <s>no</s> yes. <p><small>3-29-2025</small></p></h1>
-                <p>i'm <s>not</s> adding automatic loading to my website <s>anymore</s></p>
-                <img class="blog-posts-image" src="../asset/images/blog/automatic-loading.png">
-                <hr>
-                <span class="blog-content">
-                    <p>i don't want to add automatic loading to my website anymore<br>
-                    what i mean by automatic loading is loading stuff like the footer, navigation, and banner with javascript to reduce copy and pasting<br>
-                    and i did that on my last website<br>
-                    i won't here though</p>
+            <hr>
+            <span class="blog-content">
+                <p>i don't want to add automatic loading to my website anymore<br>
+                what i mean by automatic loading is loading stuff like the footer, navigation, and banner with javascript to reduce copy and pasting<br>
+                and i did that on my last website<br>
+                i won't here though</p>
 
-                    <h2 id="blog1">why?</h2>
-                    <p>because i still had to copy and paste anyway<br>
-                    it doesn't just add the navigation, footer and banner to the page<br>
-                    instead, it finds a placeholder html element and then puts stuff inside<br>
-                    i still need to copy and paste that placeholder, so it removes the entire purpose<br>
-                    plus, the code for it was weird and it sucked</p>
-                    <div class="code-block">
-                        <pre><code>
+                <h2 id="blog1">why?</h2>
+                <p>because i still had to copy and paste anyway<br>
+                it doesn't just add the navigation, footer and banner to the page<br>
+                instead, it finds a placeholder html element and then puts stuff inside<br>
+                i still need to copy and paste that placeholder, so it removes the entire purpose<br>
+                plus, the code for it was weird and it sucked</p>
+                <div class="code-block">
+                    <pre><code>
 <small>
 pages > about.html > html > body > div.container
 </small>
 &lt;div id="nav" class="container"&gt;
 &lt;p&gt;navigation..&lt;/p&gt;
 &lt;/div&gt;
-                        </code></pre>
-                    </div>
-                    <div class="code-block">
-                        <p><pre><code>
+                    </code></pre>
+                </div>
+                <div class="code-block">
+                    <p><pre><code>
 <small>
 js > page-loader.js > loadNavIndex
 </small>
 
 function loadNavIndex() &#123;
-    document.getElementById("nav").innerHTML = 
-    "&lt;a href='index.html'&gt;home&lt;/a&gt; &lt;a href='pages/blog.html'>blog&lt;/a&gt; &lt;a href='pages/projects.html'>projects&lt;/a&gt; &lt;a href='pages/changelog.html'>changelog&lt;/a&gt; &lt;a href='pages/about.html'>about&lt;/a&gt;"
+document.getElementById("nav").innerHTML = 
+"&lt;a href='index.html'&gt;home&lt;/a&gt; &lt;a href='pages/blog.html'>blog&lt;/a&gt; &lt;a href='pages/projects.html'>projects&lt;/a&gt; &lt;a href='pages/changelog.html'>changelog&lt;/a&gt; &lt;a href='pages/about.html'>about&lt;/a&gt;"
 &#125;
-                        </pre></code></p> 
-                    </div>
-                    <p>so basically,<br>
-                    i'm not adding automatic loading on this website because it helps me with nothing
-                    and has weird code<br>
-                    and sure, you could argue that javascript has a way to load it without a placeholder element<br>
-                    but uhh<br>
-                    i don't know how soo yeah<br>
-                    not planning to add automatic loading back unless i find a solution</p>
+                    </pre></code></p> 
+                </div>
+                <p>so basically,<br>
+                i'm not adding automatic loading on this website because it helps me with nothing
+                and has weird code<br>
+                and sure, you could argue that javascript has a way to load it without a placeholder element<br>
+                but uhh<br>
+                i don't know how soo yeah<br>
+                not planning to add automatic loading back unless i find a solution</p>
 
-                    <hr>
+                <hr>
 
-                    <h2 id="blog2">wait.. <small>4-1-2025</small></h2>
-                    <p>hello! i'm back. I would like to say some stuff.<br>
-                    so, apparently i can just use the <b>HTML DOM (Document-Object-Model)</b> combined with javascript 
-                    to do my automatic loading. and the sad thing is i've been familiar with concept for a while, i just
-                    haven't thought about how i can use it to <b>effectively</b> apply my automatic loading concept<br>
-                    Here is a basic diagram of the HTML DOM:</p>
-                    <img src="../asset/images/blog/content/domdiagram.png">
-                    <p><small>*Diagram made by me. it took a lot of time :&#40;</small></p>
-                    <br>
-                    <h3 id="blog2-sub1">the javascript part</h3>
-                    <p>so, how can the DOM be manipulated with javascript?<br>
-                    javascript can:</p>
-                    <ul>
-                        <li>change all the elements and attributes in a page</li>
-                        <li>change every CSS style in a page</li>
-                        <li>remove existing elements and attributes from the page</li>
-                        <li><b>add new elements and attributes (this is important in this situation)</b></li>
-                        <li>react to any HTML event in the page</li>
-                        <li>and also create those events</li>
-                    </ul>
-                    <p>my previous method was changing elements and attributes of HTML elements.<br>
-                    What I should be doing is <b>adding</b> new elements and attributes. it seems a bit obvious now<br>
-                    an example:</p>
-                    <div class="code-block">
-                        <pre><code>
+                <h2 id="blog2">wait.. <small>4-1-2025</small></h2>
+                <p>hello! i'm back. I would like to say some stuff.<br>
+                so, apparently i can just use the <b>HTML DOM (Document-Object-Model)</b> combined with javascript 
+                to do my automatic loading. and the sad thing is i've been familiar with concept for a while, i just
+                haven't thought about how i can use it to <b>effectively</b> apply my automatic loading concept<br>
+                Here is a basic diagram of the HTML DOM:</p>
+                <img src="../asset/images/blog/content/domdiagram.png">
+                <p><small>*Diagram made by me. it took a lot of time :&#40;</small></p>
+                <br>
+                <h3 id="blog2-sub1">the javascript part</h3>
+                <p>so, how can the DOM be manipulated with javascript?<br>
+                javascript can:</p>
+                <ul>
+                    <li>change all the elements and attributes in a page</li>
+                    <li>change every CSS style in a page</li>
+                    <li>remove existing elements and attributes from the page</li>
+                    <li><b>add new elements and attributes (this is important in this situation)</b></li>
+                    <li>react to any HTML event in the page</li>
+                    <li>and also create those events</li>
+                </ul>
+                <p>my previous method was changing elements and attributes of HTML elements.<br>
+                What I should be doing is <b>adding</b> new elements and attributes. it seems a bit obvious now<br>
+                an example:</p>
+                <div class="code-block">
+                    <pre><code>
 <small>
 js-css > global.js
 </small>
@@ -111,29 +108,23 @@ document.body.appendChild(newElement);
 <span style="opacity: 0.6">
 // this will add a paragraph element with contents "Start running." to the document body.
 </span>
-                        </pre></code> 
-                    </div>
-                    <p>so, what i can do is apply this to the banner, navigation, and footer.<br>
-                    it will eliminate copy and pasting<br>
-                    also another thing i should say is that my automatic loading wasn't entirely useless before<br>
-                    if i wanted to modify the automatically loaded elements i just needed to modify the javascript file and not
-                    the tons of HTML files in the website<br>
-                    so really, it wasn't entirely useless.</p>
+                    </pre></code> 
+                </div>
+                <p>so, what i can do is apply this to the banner, navigation, and footer.<br>
+                it will eliminate copy and pasting<br>
+                also another thing i should say is that my automatic loading wasn't entirely useless before<br>
+                if i wanted to modify the automatically loaded elements i just needed to modify the javascript file and not
+                the tons of HTML files in the website<br>
+                so really, it wasn't entirely useless.</p>
 
-                    <h3 id="blog2-sub2">conclusion</h3>
-                    <p>so, this is what i will do. adding it. omg controversial guys he said he wasn't gonna add a thing and then
-                    changed his mind? crazy<br>
-                    anyway i might do it sooner or later today? idk</p>
+                <h3 id="blog2-sub2">conclusion</h3>
+                <p>so, this is what i will do. adding it. omg controversial guys he said he wasn't gonna add a thing and then
+                changed his mind? crazy<br>
+                anyway i might do it sooner or later today? idk</p>
 
-                    <h2 id="blog3">wait, again?? <small>8-12-2025</small></h2>
-                    <p>I sound stupid</p>
-
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                </span>
-            </div>
+                <h2 id="blog3">wait, again?? <small>8-12-2025</small></h2>
+                <p>I sound stupid</p>
+            </span>
         </div>
 
     </body>
