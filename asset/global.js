@@ -33,12 +33,6 @@
         document.body.prepend(navigatorCT);
     }
 
-    const pageBackgroundCT = document.createElement("div");
-    pageBackgroundCT.id = "pageBackground";
-    function loadPageBackground() {
-        document.body.prepend(pageBackgroundCT);
-    }
-
     const navigatorMenuCT = document.createElement("div");
     navigatorMenuCT.id = "navigatorMenu";
     navigatorMenuCT.innerHTML = `
@@ -101,7 +95,6 @@ function setTheme(theme) {
         if (savedTheme) { document.documentElement.classList.add(savedTheme); }
 
         loadNavigator();
-        loadPageBackground();
 
         requestAnimationFrame(() => {
             document.body.classList.add('ready');

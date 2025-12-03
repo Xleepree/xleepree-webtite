@@ -160,10 +160,6 @@
     body {
         margin: 0;
         padding: 0;
-    }
-
-    #pageBackground {
-        z-index: -1;
         background-image: conic-gradient(
             at 50% 0%,
             var(--orange),
@@ -175,11 +171,6 @@
             var(--orange),
             var(--orange)
         );
-        position: fixed;
-        left: 0;
-        top: 0;
-        width: 100vw;
-        height: 100vh;
     }
 
     .page-container {
