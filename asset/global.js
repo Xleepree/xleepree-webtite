@@ -1,10 +1,4 @@
 // component (sorta clunky but it works)
-    const syntaxHighlightCT = document.createElement("script");
-    syntaxHighlightCT.type = "module";
-    syntaxHighlightCT.src = "https://cdn.jsdelivr.net/npm/syntax-highlight-element@1/+esm";
-    function initSyntaxHighlightAPI() {
-        document.head.append(syntaxHighlightCT);
-    }
 
     const navigatorCT = document.createElement("div");
     navigatorCT.id = "navigator";
@@ -104,7 +98,6 @@ function setTheme(theme) {
         if (savedTheme) { document.documentElement.classList.add(savedTheme); }
 
         loadNavigator();
-        initSyntaxHighlightAPI();
 
         requestAnimationFrame(() => {
             document.body.classList.add('ready');
