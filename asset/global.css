@@ -1,13 +1,13 @@
 /* paragraph and text settings */
-    @import url('https://fonts.googleapis.com/css2?family=Special+Gothic+Expanded+One&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Special+Gothic+Expanded+One&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
     * { color: var(--text-color); }
-    a { font-family: 'Fira Sans', sans-serif; }
-    h1 { font-family: 'Special Gothic Expanded One', sans-serif; }
-    h2 { font-family: 'Special Gothic Expanded One', sans-serif; }
-    h3 { font-family: 'Special Gothic Expanded One', sans-serif; }
-    h4 { font-family: 'Special Gothic Expanded One', sans-serif; }
+    a { font-family: "DynaPuff", system-ui; }
+    h1 { font-family: "DynaPuff", system-ui; }
+    h2 { font-family: "DynaPuff", system-ui; }
+    h3 { font-family: "DynaPuff", system-ui; }
+    h4 { font-family: "DynaPuff", system-ui; }
     .subsection-header { margin-bottom: -0.8em; }
     .title { text-align: center; }
     .title > img { 
@@ -19,11 +19,11 @@
     .status-now { font-size: 110%; }
     .blog-title { margin-bottom: -0.4em; }
     .blog-title > p { display: inline; }
-    .headerfont { font-family: 'Special Gothic Expanded One', sans-serif; }
-    p { font-family: 'Fira Sans', sans-serif; }
-    ul { font-family: 'Fira Sans', sans-serif; }
+    .headerfont { font-family: "DynaPuff", system-ui; }
+    p { font-family: "Ubuntu", sans-serif; }
+    ul { font-family: "Ubuntu", sans-serif; }
     li { margin-bottom: 5px; }
-    button { font-family: 'Special Gothic Expanded One', sans-serif; }
+    button { font-family: "DynaPuff", system-ui; }
     code { font-family: 'JetBrains Mono', monospace; }
     hr { border: 2px var(--text-color) dotted; }
 /**/
@@ -39,7 +39,7 @@
     --orange: rgb(255, 72, 0);
 }
 
-.dark {
+.dark-theme {
     --box-background: linear-gradient(rgba(55, 55, 55, 1), black, black);
     --box-background-code: linear-gradient(black, rgb(35, 53, 35));
     --box-shadow: 0 0 10px black;
@@ -48,6 +48,28 @@
     --text-color: white;
     --text-color-inverted: black;
     --orange: rgb(255, 72, 0);
+}
+
+.durpy-theme {
+    --box-background: linear-gradient(#fff8e7, #fff8e7, #e2dbca);
+    --box-background-code: linear-gradient(white, #fff8e7);
+    --box-shadow: 0 0 10px #5a5851;
+    --png-shadow: drop-shadow(0 0 6px #5a5851);
+    --body-background: #fff8e7;
+    --text-color: black;
+    --text-color-inverted: white;
+    --orange: #9babd2;
+}
+
+.sunset-theme {
+    --box-background: linear-gradient(black, black, rgb(0, 6, 56));
+    --box-background-code: linear-gradient(black, rgb(48, 0, 22));
+    --box-shadow: 0 0 10px black;
+    --png-shadow: drop-shadow(0 0 6px black);
+    --body-background: rgb(9, 11, 29);
+    --text-color: white;
+    --text-color-inverted: black;
+    --orange: rgb(255, 29, 67);
 }
 
 /* scrollbar for Chromium/WebKit-based browsers on certain elements */

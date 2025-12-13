@@ -1,4 +1,11 @@
 // component (sorta clunky but it works)
+    const syntaxHighlightCT = document.createElement("script");
+    syntaxHighlightCT.type = "module";
+    syntaxHighlightCT.src = "https://cdn.jsdelivr.net/npm/syntax-highlight-element@1/+esm";
+    function initSyntaxHighlightAPI() {
+        document.head.append(syntaxHighlightCT);
+    }
+
     const navigatorCT = document.createElement("div");
     navigatorCT.id = "navigator";
     navigatorCT.innerHTML = `
@@ -45,7 +52,9 @@
         </p>
         <span id="navigatorMenuThemeButtons">
             <button onclick="setTheme('')">light</button>
-            <button onclick="setTheme('dark')">dark</button>
+            <button onclick="setTheme('dark-theme')">dark</button>
+            <button onclick="setTheme('durpy-theme')">durpydoo</button>
+            <button onclick="setTheme('sunset-theme')">sunset</button>
         </span>
     `;
     let navigatorMenuToggleInt = 0;
@@ -78,7 +87,7 @@ function navC(dest) {
 
 // theme 
 function setTheme(theme) {
-    document.documentElement.classList.remove("dark");
+    document.documentElement.classList.remove("dark-theme", "durpy-theme", "sunset-theme");
     if (theme) { document.documentElement.classList.add(theme); }
     localStorage.setItem("theme", theme);
 }
@@ -95,6 +104,7 @@ function setTheme(theme) {
         if (savedTheme) { document.documentElement.classList.add(savedTheme); }
 
         loadNavigator();
+        initSyntaxHighlightAPI();
 
         requestAnimationFrame(() => {
             document.body.classList.add('ready');
