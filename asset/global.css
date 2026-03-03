@@ -254,11 +254,13 @@
         border-radius: 15px;
         overflow: hidden;
         cursor: pointer;
-        transition: box-shadow 0.5s;
+        transition: transform 300ms, box-shadow 500ms;
+        will-change: transform;
     }
 
     .blog-posts-grid > div:hover {
         box-shadow: 0 0 10px var(--orange);
+        transform: translateX(1em);
     }
 
     .blog-posts-grid > div > img {
@@ -418,6 +420,13 @@
         }
         .navigator-links {
             height: 3em;
+        }
+        .blog-posts-grid > div {
+            transition: box-shadow 500ms;
+        }
+        .blog-posts-grid > div:hover {
+            box-shadow: 0 0 10px var(--orange);
+            transform: none;
         }
     }
 /**/
