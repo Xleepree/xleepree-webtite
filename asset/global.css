@@ -345,6 +345,14 @@
         scrollbar-width: 8px;
         scrollbar-color: var(--orange);
     }
+
+    .project-img {
+        border-radius: 15px;
+        box-shadow: var(--box-shadow);
+        margin: 1em;
+        max-width: 80%;
+    }
+
 /**/
 
 /* page transition */
