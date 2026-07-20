@@ -3,16 +3,14 @@
     @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
     * { color: var(--text-color); }
-    a { font-family: "DynaPuff", system-ui; }
-    h1 { font-family: "DynaPuff", system-ui; }
-    h2 { font-family: "DynaPuff", system-ui; }
-    h3 { font-family: "DynaPuff", system-ui; }
-    h4 { font-family: "DynaPuff", system-ui; }
+    a { font-family: "Ubuntu", sans-serif; }
+    h1, h2, h3, h4 { 
+        font-family: "DynaPuff", system-ui;
+    }
     .subsection-header { margin-bottom: -0.8em; }
     .title { text-align: center; }
     .title > img { 
         max-width: 20em;
-        filter: var(--png-shadow);
         display: block;
         margin: 1em auto 0 auto;
     }
@@ -20,161 +18,78 @@
     .blog-title { margin-bottom: -0.4em; }
     .blog-title > p { display: inline; }
     .headerfont { font-family: "DynaPuff", system-ui; }
-    p { font-family: "Ubuntu", sans-serif; }
-    ul { font-family: "Ubuntu", sans-serif; }
+    p, ul { font-family: "Ubuntu", sans-serif; }
     li { margin-bottom: 5px; }
-    button { font-family: "DynaPuff", system-ui; }
+    button { font-family: "Ubuntu", system-ui; }
     code { font-family: 'JetBrains Mono', monospace; }
     hr { border: 2px var(--text-color) dotted; }
 /**/
 
 :root {
-    --box-background: linear-gradient(white, white, rgba(200, 200, 200, 1));
-    --box-background-code: linear-gradient(white, rgb(148, 230, 148));
-    --box-shadow: 0 0 10px black;
-    --png-shadow: drop-shadow(0 0 6px black);
-    --body-background: white;
-    --text-color: black;
-    --text-color-inverted: white;
     --orange: rgb(255, 72, 0);
-}
-
-.dark-theme {
-    --box-background: linear-gradient(rgba(55, 55, 55, 1), black, black);
-    --box-background-code: linear-gradient(black, rgb(35, 53, 35));
-    --box-shadow: 0 0 10px black;
-    --png-shadow: drop-shadow(0 0 6px black);
-    --body-background: rgb(20, 20, 20);
+    --box-background-code: black;
+    --text-color-code: white;
+    --blog-post-hover-outline: 0.5em solid var(--orange);
+    --body-background: rgb(25, 25, 25);
+    --page-background: rgba(30, 30, 30, 1);
+    --box-background: rgba(55, 55, 55, 1);
+    --img-background: var(--box-background);
+    --banner-background: var(--orange);
+    --footer-background: rgb(20, 20, 20);
+    --navigator-background: rgb(18, 18, 18);
+    --content-background: rgb(40, 40, 40);
+    --navigator-text-color: white;
     --text-color: white;
-    --text-color-inverted: black;
-    --orange: rgb(255, 72, 0);
 }
-
-.durpy-theme {
-    --box-background: linear-gradient(#fff8e7, #fff8e7, #e2dbca);
-    --box-background-code: linear-gradient(white, #fff8e7);
-    --box-shadow: 0 0 10px #5a5851;
-    --png-shadow: drop-shadow(0 0 6px #5a5851);
-    --body-background: #fff8e7;
-    --text-color: black;
-    --text-color-inverted: white;
-    --orange: #9babd2;
-}
-
-.sunset-theme {
-    --box-background: linear-gradient(black, black, rgb(0, 6, 56));
-    --box-background-code: linear-gradient(black, rgb(48, 0, 22));
-    --box-shadow: 0 0 10px black;
-    --png-shadow: drop-shadow(0 0 6px black);
-    --body-background: rgb(9, 11, 29);
-    --text-color: white;
-    --text-color-inverted: black;
-    --orange: rgb(255, 29, 67);
-}
-
-/* scrollbar for Chromium/WebKit-based browsers on certain elements */
-    ::-webkit-scrollbar {
-        height: 5px;
-        width: 5px;
-    }
-
-    ::-webkit-scrollbar-button {
-        opacity: 0;
-    }
-
-    ::-webkit-scrollbar-track {
-        opacity: 0;
-    }
-
-    ::-webkit-scrollbar-thumb {
-        background-color: rgba(0, 0, 0, 0.5);
-        border-radius: 15px;
-    }
-
-    ::-webkit-scrollbar-corner {
-        opacity: 0;
-    }
-/**/
 
 /* navigator */
     #navigator {
         position: sticky;
         left: 0;
         top: 0;
-        background: black;
-        box-shadow: var(--box-shadow);
+        background: var(--navigator-background);
         width: 100vw;
-        height: 2em;
+        height: 3em;
         z-index: 1;
-    }
-
-    #navigatorMenu {
-        background: black;
-        box-shadow: var(--box-shadow);
-        text-align: center;
-        max-width: 30em;
-        position: fixed;
-        top: 2em;
-        left: calc(50vw - 15em);
-        right: calc(50vw - 15em);
-        opacity: 0;
-        animation: animFadeIn 0.2s ease-in-out;
-        border-radius: 0 0 15px 15px;
-        padding: 1em;
-        z-index: 1;
-    }
-
-    #navigatorMenuIcon {
-        position: absolute;
-        left: calc(50% - 1em);
-        right: calc(50% - 1em);
-        top: 0;
-        width: 2em;
-        height: 2em;
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: black;
-        transition: filter 0.3s;
     }
 
-    #navigatorMenuIcon:hover {
-        filter: invert(100%);
+    #navigator > p > a {
+        transition: color 0.3s;
+        color: var(--navigator-text-color);
     }
 
-    #navigatorMenuIcon > img {
-        width: 1.5em;
-        height: 1.5em;
-    }
-
-    #navigatorMenuThemeButtons > button {
-        border-radius: 15px;
-        color: white;
-        outline: 2px white solid;
-        margin: 0 2px 0 2px;
-        background: black;
-    }
-
-    #navigatorMenu > p, #navigatorMenu > h1 {
-        color: white;
-    }
-
-    .navigator-links {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 2em;
-    }
-
-    .navigator-links > a {
-        color: white !important;
-        margin: 4px;
-        transition: color 0.3s, letter-spacing 0.3s;
-    }
-
-    .navigator-links > a:hover {
-        color: var(--orange) !important;
+    #navigator > p > a:hover {
+        color: var(--orange);
         cursor: pointer;
+    }
+/**/
+
+/* banner */
+    #banner {
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+        background-color: var(--banner-background);
+        display: flex;
+        justify-content: center;
+        overflow: hidden;
+    }
+    #banner > img {
+        max-width: 70em;
+        outline: 16em solid rgba(255, 255, 255, 0.5);
+    }
+/**/
+
+/* footer */
+    #footer {
+        max-width: 100%;
+        margin: 0;
+        padding: 1em;
+        background: var(--footer-background);
+        text-align: center;
     }
 /**/
 
@@ -182,25 +97,28 @@
     body {
         margin: 0;
         padding: 0;
-        background-image: conic-gradient(
-            at 50% 0%,
-            var(--orange),
-            var(--orange),
-            var(--orange),
-            var(--body-background),
-            var(--body-background),
-            var(--orange),
-            var(--orange),
-            var(--orange)
-        );
+        background: var(--body-background);
         background-size: cover;
         min-height: 100vh;
     }
 
     .page-container {
-        max-width: 40em;
+        max-width: 60em;
         margin: 0 auto 0 auto;
         padding: 1em;
+        background-color: var(--page-background);
+    }
+
+    .content-container {
+        max-width: 100%;
+        padding: 1em;
+        background-color: var(--content-background);
+        margin-top: 1em;
+        border-radius: 15px;
+    }
+
+    .content-container-first {
+        margin-top: 0;
     }
 
     .blog-post-latest {
@@ -211,16 +129,16 @@
     }
 
     .blog-post-latest > div {
-        background-image: var(--box-background);
-        box-shadow: var(--box-shadow);
+        background-color: var(--box-background);
         border-radius: 15px;
         overflow: hidden;
         cursor: pointer;
-        transition: box-shadow 0.5s;
+        outline: 0px solid rgba(255, 255, 255, 0);
+        transition: outline 0.5s;
     }
 
     .blog-post-latest > div:hover {
-        box-shadow: 0 0 10px var(--orange);
+        outline: var(--blog-post-hover-outline);
     }
 
     .blog-post-latest > div > img {
@@ -243,24 +161,24 @@
 
     .blog-posts-grid {
         display: grid;
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
         gap: 1em;
         padding: 8px;
     }
 
     .blog-posts-grid > div {
-        background-image: var(--box-background);
-        box-shadow: var(--box-shadow);
+        background-color: var(--box-background);
         border-radius: 15px;
         overflow: hidden;
         cursor: pointer;
-        transition: transform 300ms, box-shadow 500ms;
+        outline: 0px solid rgba(255, 255, 255, 0);
+        transition: transform 300ms, outline 500ms;
         will-change: transform;
     }
 
     .blog-posts-grid > div:hover {
-        box-shadow: 0 0 10px var(--orange);
-        transform: translateX(1em);
+        outline: var(--blog-post-hover-outline);
+        transform: translateY(-1em);
     }
 
     .blog-posts-grid > div > img {
@@ -282,19 +200,8 @@
     }
 
     .blog-posts-image {
-        width: 100%;
+        max-width: 100%;
         border-radius: 15px;
-        box-shadow: var(--box-shadow);
-        margin-bottom: 1em;
-    }
-
-    .blog-posts-ToC {
-        width: calc(100% - 2em);
-        border-radius: 15px;
-        background-image: var(--box-background);
-        box-shadow: var(--box-shadow);
-        padding: 1em;
-        margin-bottom: 1em;
     }
 
     .blog-posts-ToC > button {
@@ -314,17 +221,16 @@
 
     .blog-content > img {
         border-radius: 15px;
-        box-shadow: var(--box-shadow);
         margin: 1em;
         max-width: 80%;
+        background-color: var(--img-background);
     }
 
     .changelog {
         width: 80%;
         max-height: 70vh;
         border-radius: 15px;
-        box-shadow: var(--box-shadow);
-        background-image: var(--box-background);
+        background-color: var(--box-background);
         overflow: scroll;
         padding: 1em;
         margin: 1em;
@@ -334,32 +240,25 @@
         width: 80%;
         max-height: 30em;
         border-radius: 15px;
-        box-shadow: var(--box-shadow);
-        background-image: var(--box-background-code);
+        background-color: var(--box-background-code);
         overflow: scroll;
         padding: 1em;
         margin: 1em;
     }
 
-    .code-block > pre > code {
-        scrollbar-width: 8px;
-        scrollbar-color: var(--orange);
-    }
-
     .project-img {
         border-radius: 15px;
-        box-shadow: var(--box-shadow);
         margin: 1em;
         max-width: 80%;
+        background: var(--img-background);
     }
-
 /**/
 
 /* page transition */
     body {
         opacity: 0;
         pointer-events: none;
-        transition: opacity 300ms ease;
+        transition: opacity 700ms ease;
     }
 
     body.ready {
@@ -372,25 +271,22 @@
     a:link {
         color: var(--orange);
         text-decoration: none;
-        transition: letter-spacing 0.5s, font-weight 0.5s, color 0.5s;
+        transition: color 0.5s;
     }
 
     a:visited {
         color: var(--orange);
         text-decoration: none;
-        transition: letter-spacing 0.5s, font-weight 0.5s, color 0.5s;
+        transition: color 0.5s;
     }
 
     a:hover {
-        color: rgb(0, 72, 255);
-        font-weight: bold;
+        color: rgb(53, 110, 255);
         text-decoration: none;
-        letter-spacing: 1px;
     }
 
     a:active {
-        color: rgb(0, 72, 255);
-        font-weight: bolder;
+        color: rgb(53, 110, 255);
         text-decoration: none;
     }
 /**/
@@ -409,32 +305,20 @@
 
 /* mobile */
     @media (orientation: portrait) {
-        #navigatorMenu {
-            max-width: 100vw;
-            left: 0;
-            right: 0;
-            word-wrap: break-word;
-        }
-        #navigator {
-            height: 3em;
-        }
-        #navigatorMenuIcon {
-            width: 3em;
-            height: 3em;
-        }
-        #navigatorMenuIcon > img {
-            width: 2em;
-            height: 2em;
-        }
-        .navigator-links {
-            height: 3em;
+        .blog-posts-grid {
+            grid-template-columns: 1fr;
         }
         .blog-posts-grid > div {
-            transition: box-shadow 500ms;
+            transition: outline 500ms;
         }
         .blog-posts-grid > div:hover {
-            box-shadow: 0 0 10px var(--orange);
+            outline: var(--blog-post-hover-outline);
             transform: none;
+        }
+    }
+    @media screen and (width <= 70em) {
+        #banner > img {
+            max-width: 100%
         }
     }
 /**/

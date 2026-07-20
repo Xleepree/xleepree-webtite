@@ -1,106 +1,122 @@
 // component (sorta clunky but it works)
-
-    const navigatorCT = document.createElement("div");
-    navigatorCT.id = "navigator";
-    navigatorCT.innerHTML = `
-        <div class="navigator-links" style="float: left">
-            <a href="index.html">home</a>
-            <a href="about.html">about</a>
-        </div>
-        <div id="navigatorMenuIcon" onclick="toggleNavigatorMenu()">
-            <img src="asset/favicon.png">
-        </div>
-        <div class="navigator-links" style="float: right">
-            <a href="blog.html">blog</a>
-            <a href="projects.html">projects</a>
-        </div>
-    `
-    if (pageIsBlog() == true) {
-        navigatorCT.innerHTML = `
-            <div class="navigator-links" style="float: left">
-                <a href="../index.html">home</a>
-                <a href="../about.html">about</a>
-            </div>
-            <div id="navigatorMenuIcon" onclick="toggleNavigatorMenu()">
-                <img src="../asset/favicon.png">
-            </div>
-            <div class="navigator-links" style="float: right">
-                <a href="../blog.html">blog</a>
-                <a href="../projects.html">projects</a>
-            </div>
-        `
+    function loadBanner() {
+        const bannerCT = document.createElement("div");
+        bannerCT.id = "banner";
+        bannerCT.innerHTML = `
+            <img src="asset/images/banner.png">
+        `;
+        if (pageIsBlog() == true) {
+            bannerCT.innerHTML = `
+                <img src="../asset/images/banner.png">
+            `;
+        }
+        document.body.prepend(bannerCT);
     }
+
     function loadNavigator() {
+        const navigatorCT = document.createElement("div");
+        navigatorCT.id = "navigator";
+        navigatorCT.innerHTML = `
+            <p>
+                <a href="index.html">home</a>
+                <a href="about.html">about</a>
+                <a href="blog.html">blog</a>
+                <a href="projects.html">projects</a>
+            </p>
+        `
+        if (pageIsBlog() == true) {
+            navigatorCT.innerHTML = `
+                <p>
+                    <a href="../index.html">home</a>
+                    <a href="../about.html">about</a>
+                    <a href="../blog.html">blog</a>
+                    <a href="../projects.html">projects</a>
+                </p>
+            `
+        }
         document.body.prepend(navigatorCT);
     }
-
-    const navigatorMenuCT = document.createElement("div");
-    navigatorMenuCT.id = "navigatorMenu";
-    navigatorMenuCT.innerHTML = `
-        <h1 style="margin-bottom: -0.5em">xleepree.pages.dev</h1>
-        <p style="margin-bottom: -0.8em">version 3.0.0 :: est. Nov 3, 2024 :: hosted with Cloudflare</p>
-        <p>
-            <a href="https://github.com/Xleepree/xleepree-webtite">repository </a>
-            ::
-            <a href="mailto:xleepree.pages.mail@gmail.com"> contact</a>
-        </p>
-        <span id="navigatorMenuThemeButtons">
-            <button onclick="setTheme('')">light</button>
-            <button onclick="setTheme('dark-theme')">dark</button>
-            <button onclick="setTheme('durpy-theme')">durpydoo</button>
-            <button onclick="setTheme('sunset-theme')">sunset</button>
-        </span>
-    `;
-    let navigatorMenuToggleInt = 0;
-    function toggleNavigatorMenu() {
-        if (navigatorMenuToggleInt == 0) {
-            document.body.prepend(navigatorMenuCT);
-            const navigatorMenu = document.getElementById("navigatorMenu");
-            navigatorMenu.style.animation = "animFadeIn 0.2s ease-in-out";
-            navigatorMenu.style.opacity = "1";
-            navigatorMenuToggleInt = 1;
-        } else if (navigatorMenuToggleInt == 1) {
-            const navigatorMenu = document.getElementById("navigatorMenu");
-            navigatorMenu.style.animation = "animFadeOut 0.2s ease-in-out"
-            navigatorMenu.style.opacity = "0";
-            setTimeout(() => { navigatorMenu.remove(); }, 300);
-            navigatorMenuToggleInt = 0;
-        }
+    
+    function loadFooter() {
+        const footerCT = document.createElement("div");
+        footerCT.id = "footer";
+        footerCT.innerHTML = `
+            <p>
+                © 2026 Xleepree. all content on this website, unless otherwise noted,
+                is licensed under a CC BY-NC-SA 4.0 license.
+                ::
+                est. Nov 3, 2024<br>
+                <br>
+                <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="" style="max-width: 3em;max-height:3em;margin-left: .2em;">
+                <img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="" style="max-width: 3em;max-height:3em;margin-left: .2em;">
+                <img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" alt="" style="max-width: 3em;max-height:3em;margin-left: .2em;">
+                <img src="https://mirrors.creativecommons.org/presskit/icons/sa.svg" alt="" style="max-width: 3em;max-height:3em;margin-left: .2em;">
+            </p>
+        `;
+        document.body.append(footerCT);
     }
 //
 
 // functions for stuffs
     function viewportIsPortrait() { return window.innerHeight > window.innerWidth; }
     function pageIsBlog() { return window.location.pathname.includes("blog/");  }
+    function checkForStatusPage() {
+        let condition = false;
+        if (document.head.title === "xleepree : about") { condition = true; }
+        if (document.head.title === "xleepree : home") { condition = true; }
+        return condition;
+    }
 //
+
+// fill in status from "status" JSON folder
+let statuses = {};
+async function fillInStatus() {
+    const homeStatus = document.getElementById("homeStatus");
+    const aboutStatuses = document.getElementById("aboutStatuses");
+    const statusResponse = await fetch("status.json");
+    if (!statusResponse.ok) {
+        console.error(`trying to fetch status.json returned ${statusResponse.status}`);
+    } else {
+        const json = await statusResponse.json();
+        statuses = json;
+    }
+    const latestStatus = Math.max(...Object.keys(statuses).map(k => Number(k)));
+    if (homeStatus) {
+        homeStatus.innerHTML = 
+            `<b>${statuses[latestStatus].date}:</b> "${statuses[latestStatus].text}"`;
+    }
+    if (aboutStatuses) {
+        let big = document.createElement("span");
+        let latestStatusElem = document.createElement("p");
+        latestStatusElem.classList.add("status-now");
+        latestStatusElem.innerHTML =
+            `<b>${statuses[latestStatus].date} (latest):</b> "${statuses[latestStatus].text}"`;
+        for (const [key, values] of Object.entries(statuses)) {
+            if (key == latestStatus) { continue; }
+            let elem = document.createElement("p");
+            elem.innerHTML = 
+                `<b>${values.date}:</b> "${values.text}"`;
+            big.prepend(elem);
+        }
+        big.prepend(latestStatusElem);
+        aboutStatuses.appendChild(big);
+    }
+}
 
 // for quick access to onclick="window.location.pathname = 'blahblah'"
 function navC(dest) {
     window.location.pathname = dest;
 }
 
-// theme 
-function setTheme(theme) {
-    document.documentElement.classList.remove("dark-theme", "durpy-theme", "sunset-theme");
-    if (theme) { document.documentElement.classList.add(theme); }
-    localStorage.setItem("theme", theme);
-}
-
 // listen
-    window.addEventListener("beforeunload", () => {
-        requestAnimationFrame(() => {
-            document.body.classList.remove('ready');
-        });
-    });
-
-    document.addEventListener("DOMContentLoaded", () => {
-        const savedTheme = localStorage.getItem("theme") || "";
-        if (savedTheme) { document.documentElement.classList.add(savedTheme); }
-
-        loadNavigator();
-
+document.addEventListener("DOMContentLoaded", () => {
+    loadNavigator();
+    loadBanner();
+    loadFooter();
+    fillInStatus();
+    setTimeout(() => {
         requestAnimationFrame(() => {
             document.body.classList.add('ready');
         });
-    });
-//
+    }, 100);
+});
