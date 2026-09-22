@@ -18,6 +18,9 @@
     .blog-title { margin-bottom: -0.4em; }
     .blog-title > p { display: inline; }
     .headerfont { font-family: "DynaPuff", system-ui; }
+    .code-comment { opacity: 0.6; }
+    .half-opacity { opacity: 0.5; }
+    .blog-posts-ToC-empty { opacity: 0.4; }
     p, ul { font-family: "Ubuntu", sans-serif; }
     li { margin-bottom: 5px; }
     button { font-family: "Ubuntu", system-ui; }
@@ -39,6 +42,8 @@
     --navigator-background: rgb(18, 18, 18);
     --content-background: rgb(40, 40, 40);
     --navigator-text-color: white;
+    --note-block-background-color: rgba(0, 115, 255, 0.1);
+    --note-block-border-color: rgb(0, 115, 255);
     --text-color: white;
 }
 
@@ -204,6 +209,10 @@
         border-radius: 15px;
     }
 
+    .captioned-image { 
+        margin-bottom: -3px !important;
+    }
+
     .blog-posts-ToC > button {
         border: none;
         background: none;
@@ -251,6 +260,14 @@
         margin: 1em;
         max-width: 80%;
         background: var(--img-background);
+    }
+
+    .note-block {
+        border-radius: 15px;
+        max-width: 100%;
+        padding: 1em;
+        background-color: var(--note-block-background-color);
+        border-left: 8px solid var(--note-block-border-color);
     }
 /**/
 
